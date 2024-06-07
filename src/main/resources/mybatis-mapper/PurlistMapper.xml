@@ -3,9 +3,22 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.PurlistMapper">
+    <resultMap id="purlistDTO" type="com.example.demo.dto.PurlistDTO">
+        <result property="PURCHASE_PRODUCT_QUANTITY" column="PURCHASE_PRODUCT_QUANTITY"/>
+        <result property="PURCHASE_PRODUCT_PRICE" column="PURCHASE_PRODUCT_PRICE"/>
+        <result property="ACC_MILEAGE" column="ACC_MILEAGE"/>
+        <result property="PRODUCT_CODE" column="PRODUCT_CODE"/>
+        <result property="PURCHASE_DATE" column="PURCHASE_DATE"/>
+        <result property="PURCHASE_CODE" column="PURCHASE_CODE"/>
+    </resultMap>
+
     <insert id="purlistInsert" parameterType="com.example.demo.dto.PurlistDTO">
         BEGIN
             insert into PUR_LIST(PURCHASE_PRODUCT_QUANTITY, PURCHASE_PRODUCT_PRICE, ACC_MILEAGE, PRODUCT_CODE, PURCHASE_DATE, PURCHASE_CODE) values (#{PURCHASE_PRODUCT_QUANTITY}, #{PURCHASE_PRODUCT_PRICE}, #{ACC_MILEAGE}, #{PRODUCT_CODE}, #{PURCHASE_DATE}, #{PURCHASE_CODE});
         END;
     </insert>
+
+    <select id="purlistSelect" resultMap="purlistDTO">
+        select * from PUR_LIST
+    </select>
 </mapper>

@@ -3,9 +3,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.LotteryMapper">
+    <resultMap id="lotteryDTO" type="com.example.demo.dto.LotteryDTO">
+        <result property="LOTTERY_SALE_DATE" column="LOTTERY_SALE_DATE"/>
+        <result property="LOTTERY_CODE" column="LOTTERY_CODE"/>
+        <result property="LOTTERY_NO" column="LOTTERY_NO"/>
+        <result property="EMP_CODE" column="EMP_CODE"/>
+    </resultMap>
+
     <insert id="lotteryInsert" parameterType="com.example.demo.dto.LotteryDTO">
         BEGIN
             insert into lottery(lottery_sale_date, lottery_code, lottery_no, emp_code) values (#{LOTTERY_SALE_DATE}, #{LOTTERY_CODE}, #{LOTTERY_NO}, #{EMP_CODE});
         END;
     </insert>
+
+    <select id="lotterySelect" resultMap="lotteryDTO">
+        select * from LOTTERY
+    </select>
 </mapper>

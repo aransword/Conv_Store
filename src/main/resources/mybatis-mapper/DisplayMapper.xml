@@ -3,9 +3,22 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.DisplayMapper">
+    <resultMap id="displayDTO" type="com.example.demo.dto.DisplayDTO">
+        <result property="PRODUCT_NAME" column="PRODUCT_NAME"/>
+        <result property="DISPLAY_QUANTITY" column="DISPLAY_QUANTITY"/>
+        <result property="PRODUCT_PRICE" column="PRODUCT_PRICE"/>
+        <result property="PRODUCT_DC" column="PRODUCT_DC"/>
+        <result property="PB_PRODUCT" column="PB_PRODUCT"/>
+        <result property="PRODUCT_CODE" column="PRODUCT_CODE"/>
+    </resultMap>
+
     <insert id="displayInsert" parameterType="com.example.demo.dto.DisplayDTO">
         BEGIN
            insert into DISPLAY(PRODUCT_NAME, DISPLAY_QUANTITY, PRODUCT_PRICE, PRODUCT_DC, PB_PRODUCT, PRODUCT_CODE) values (#{PRODUCT_NAME}, #{DISPLAY_QUANTITY}, #{PRODUCT_PRICE}, #{PRODUCT_DC}, #{PB_PRODUCT}, #{PRODUCT_CODE});
         END;
     </insert>
+
+    <select id="displaySelect" resultMap="displayDTO">
+        select * from DISPLAY
+    </select>
 </mapper>

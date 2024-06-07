@@ -3,9 +3,23 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.ChargeMapper">
+    <resultMap id = "chargeDTO" type="com.example.demo.dto.ChargeDTO">
+        <result property="PAY_DATE" column="PAY_DATE"/>
+        <result property="CHARGE_CODE" column="CHARGE_CODE"/>
+        <result property="INST_NAME" column="INST_NAME"/>
+        <result property="CHARGE_NAME" column="CHARGE_NAME"/>
+        <result property="PAYER" column="PAYER"/>
+        <result property="PAY_AMOUNT" column="PAY_AMOUNT"/>
+        <result property="EMP_CODE" column="EMP_CODE"/>
+    </resultMap>
+
     <insert id="chargeInsert" parameterType="com.example.demo.dto.ChargeDTO">
         BEGIN
             insert into charge(PAY_DATE, CHARGE_CODE, INST_NAME, CHARGE_NAME, PAYER, PAY_AMOUNT, EMP_CODE) values (#{PAY_DATE}, #{CHARGE_CODE}, #{INST_NAME}, #{CHARGE_NAME}, #{PAYER}, #{PAY_AMOUNT}, #{EMP_CODE});
         END;
     </insert>
+
+    <select id="chargeSelect" resultMap="chargeDTO">
+        select * from charge
+    </select>
 </mapper>

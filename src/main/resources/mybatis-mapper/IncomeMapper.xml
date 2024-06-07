@@ -3,9 +3,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.IncomeMapper">
+    <resultMap id="incomeDTO" type="com.example.demo.dto.IncomeDTO">
+        <result property="INCOME_DATE" column="INCOME_DATE"/>
+        <result property="INCOME_CODE" column="INCOME_CODE"/>
+        <result property="INCOME_AMOUNT" column="INCOME_AMOUNT"/>
+    </resultMap>
+
     <insert id="incomeInsert" parameterType="com.example.demo.dto.IncomeDTO">
         BEGIN
             insert into income(income_date, income_code, income_amount) values (#{INCOME_DATE}, #{INCOME_CODE}, #{INCOME_AMOUNT});
         END;
     </insert>
+
+    <select id="incomeSelect" resultMap="incomeDTO">
+        select * from income
+    </select>
 </mapper>

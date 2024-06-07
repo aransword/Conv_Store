@@ -10,4 +10,9 @@ public class ProductDTO {
     private String PRODUCT_NAME;
     private int PRODUCT_PRICE;
     private String PB_PRODUCT;
+
+    @Override
+    public String toString() {
+        return "[" + PRODUCT_CODE + ", " + PRODUCT_NAME + ", " + PRODUCT_PRICE + ", " + PB_PRODUCT + "]";
+    }
 }

@@ -3,9 +3,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.ProductMapper">
+    <resultMap id="productDTO" type="com.example.demo.dto.ProductDTO">
+        <result property="PRODUCT_CODE" column="PRODUCT_CODE"/>
+        <result property="PRODUCT_NAME" column="PRODUCT_NAME"/>
+        <result property="PRODUCT_PRICE" column="PRODUCT_PRICE"/>
+        <result property="PB_PRODUCT" column="PB_PRODUCT"/>
+    </resultMap>
+
     <insert id="productInsert" parameterType="com.example.demo.dto.ProductDTO">
         BEGIN
            insert into product(PRODUCT_CODE, PRODUCT_NAME, PRODUCT_PRICE, PB_PRODUCT) values (#{PRODUCT_CODE}, #{PRODUCT_NAME}, #{PRODUCT_PRICE}, #{PB_PRODUCT});
         END;
     </insert>
+
+    <select id="productSelect" resultMap="productDTO">
+        select * from product
+    </select>
 </mapper>

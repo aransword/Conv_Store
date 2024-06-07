@@ -9,4 +9,9 @@ public class IncomeDTO {
     private String INCOME_DATE;
     private String INCOME_CODE;
     private int INCOME_AMOUNT;
+
+    @Override
+    public String toString() {
+        return "[" + INCOME_DATE + ", " + INCOME_CODE + ", " + INCOME_AMOUNT + "]";
+    }
 }

@@ -13,4 +13,9 @@ public class PurlistDTO {
     private int PURCHASE_PRODUCT_QUANTITY;
     private int PURCHASE_PRODUCT_PRICE;
     private int ACC_MILEAGE;
+
+    @Override
+    public String toString() {
+        return "[" + PURCHASE_CODE + ", " + PURCHASE_DATE + ", " + PRODUCT_CODE + ", " + PURCHASE_PRODUCT_QUANTITY + ", " + PURCHASE_PRODUCT_PRICE + ", " + ACC_MILEAGE + "]";
+    }
 }

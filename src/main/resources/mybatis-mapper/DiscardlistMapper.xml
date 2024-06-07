@@ -3,9 +3,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.DiscardlistMapper">
+    <resultMap id="discardlistDTO" type="com.example.demo.dto.DiscardlistDTO">
+        <result property="DISCARD_DATE" column="DISCARD_DATE"/>
+        <result property="DISCARD_TYPE_CODE" column="DISCARD_TYPE_CODE"/>
+        <result property="DISCARD_QUANTITY" column="DISCARD_QUANTITY"/>
+        <result property="EMP_CODE" column="EMP_CODE"/>
+        <result property="PRODUCT_CODE" column="PRODUCT_CODE"/>
+    </resultMap>
+
     <insert id="discardlistInsert" parameterType="com.example.demo.dto.DiscardlistDTO">
         BEGIN
             insert into DISCARD_LIST(DISCARD_DATE, DISCARD_TYPE_CODE, DISCARD_QUANTITY, EMP_CODE, PRODUCT_CODE) values (#{DISCARD_DATE}, #{DISCARD_TYPE_CODE}, #{DISCARD_QUANTITY}, #{EMP_CODE}, #{PRODUCT_CODE});
         END;
     </insert>
+
+    <select id="discardlistSelect" resultMap="discardlistDTO">
+        select * from DISCARD_LIST
+    </select>
 </mapper>

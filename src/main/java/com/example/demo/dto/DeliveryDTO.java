@@ -16,4 +16,9 @@ public class DeliveryDTO {
     private String CURRENT_STATUS;
     private int DELIVERY_AMOUNT;
     private String EMP_CODE;
+
+    @Override
+    public String toString() {
+        return "[" + DELIVERY_DATE + ", " + DELIVERY_CODE + ", " + SENDER + ", " + RECEIVER + ", " + SOURCE + ", " + DEST + ", " + DELIVERY_CONTENT + ", " + CURRENT_STATUS + ", " + DELIVERY_AMOUNT + ", " + EMP_CODE + "]";
+    }
 }

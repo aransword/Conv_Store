@@ -3,9 +3,22 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.OrderlistMapper">
+    <resultMap id="orderlistDTO" type="com.example.demo.dto.OrderlistDTO">
+        <result property="ORDER_PRODUCT_QUANTITY" column="ORDER_PRODUCT_QUANTITY"/>
+        <result property="ORDER_PRODUCT_PRICE" column="ORDER_PRODUCT_PRICE"/>
+        <result property="COMPANY_CODE" column="COMPANY_CODE"/>
+        <result property="PRODUCT_CODE" column="PRODUCT_CODE"/>
+        <result property="ORDER_CODE" column="ORDER_CODE"/>
+        <result property="ORDER_DATE" column="ORDER_DATE"/>
+    </resultMap>
+
     <insert id="orderlistInsert" parameterType="com.example.demo.dto.OrderlistDTO">
         BEGIN
            insert into ORDER_LIST(ORDER_PRODUCT_QUANTITY, ORDER_PRODUCT_PRICE, COMPANY_CODE, PRODUCT_CODE, ORDER_CODE, ORDER_DATE) values (#{ORDER_PRODUCT_QUANTITY}, #{ORDER_PRODUCT_PRICE}, #{COMPANY_CODE}, #{PRODUCT_CODE}, #{ORDER_CODE}, #{ORDER_DATE});
         END;
     </insert>
+
+    <select id="orderlistSelect" resultMap="orderlistDTO">
+        select * from ORDER_LIST
+    </select>
 </mapper>

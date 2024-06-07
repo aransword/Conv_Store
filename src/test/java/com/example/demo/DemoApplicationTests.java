@@ -1,12 +1,13 @@
 package com.example.demo;
 
+import java.util.*;
+
 import com.example.demo.mapper.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.demo.dto.*;
-
 
 
 @SpringBootTest
@@ -90,6 +91,15 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void employeeSelect(){
+        List<EmployeeDTO> employeeDTOList = employeeMapper.employeeSelect();
+        System.out.println(employeeDTOList.size());
+        for(EmployeeDTO employeeDTO : employeeDTOList){
+            System.out.println(employeeDTO);
+        }
+    }
+
+    @Test
     public void chargeInsert(){
         ChargeDTO chargeDTO = new ChargeDTO();
 
@@ -101,6 +111,15 @@ class DemoApplicationTests {
         chargeDTO.setPAY_AMOUNT(32000);
         chargeDTO.setEMP_CODE("ABCDE");
         chargeMapper.chargeInsert(chargeDTO);
+    }
+
+    @Test
+    public void chargeSelect(){
+        List<ChargeDTO> chargeDTOList = chargeMapper.chargeSelect();
+        System.out.println(chargeDTOList.size());
+        for(ChargeDTO chargeDTO : chargeDTOList){
+            System.out.println(chargeDTO);
+        }
     }
 
     @Test
@@ -117,6 +136,15 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void ATMSelect(){
+        List<ATMDTO> ATMDTOList = atmMapper.ATMSelect();
+        System.out.println(ATMDTOList.size());
+        for(ATMDTO atmDTO : ATMDTOList){
+            System.out.println(atmDTO);
+        }
+    }
+
+    @Test
     public void incomeInsert(){
         IncomeDTO income = new IncomeDTO();
 
@@ -124,6 +152,15 @@ class DemoApplicationTests {
         income.setINCOME_CODE("100001");
         income.setINCOME_AMOUNT(3000);
         incomeMapper.incomeInsert(income);
+    }
+
+    @Test
+    public void incomeSelect(){
+        List<IncomeDTO> incomeDTOList = incomeMapper.incomeSelect();
+        System.out.println(incomeDTOList.size());
+        for(IncomeDTO incomeDTO : incomeDTOList){
+            System.out.println(incomeDTO);
+        }
     }
 
     @Test
@@ -135,6 +172,15 @@ class DemoApplicationTests {
         lotteryDTO.setLOTTERY_NO("1, 4, 10, 26, 32, 44");
         lotteryDTO.setLOTTERY_CODE("FGHIJ");
         lotteryMapper.lotteryInsert(lotteryDTO);
+    }
+
+    @Test
+    public void lotterySelect(){
+        List<LotteryDTO> lotteryDTOList = lotteryMapper.lotterySelect();
+        System.out.println(lotteryDTOList.size());
+        for(LotteryDTO lotteryDTO : lotteryDTOList){
+            System.out.println(lotteryDTO);
+        }
     }
 
     @Test
@@ -156,6 +202,15 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void deliverySelect(){
+        List<DeliveryDTO> deliveryDTOList = deliveryMapper.deliverySelect();
+        System.out.println(deliveryDTOList.size());
+        for(DeliveryDTO deliveryDTO : deliveryDTOList) {
+            System.out.println(deliveryDTO);
+        }
+    }
+
+    @Test
     public void productInsert(){
         ProductDTO productDTO = new ProductDTO();
 
@@ -165,6 +220,15 @@ class DemoApplicationTests {
         productDTO.setPB_PRODUCT("N");
 
         productMapper.productInsert(productDTO);
+    }
+
+    @Test
+    public void productSelect(){
+        List<ProductDTO> productDTOList = productMapper.productSelect();
+        System.out.println(productDTOList.size());
+        for(ProductDTO productDTO : productDTOList) {
+            System.out.println(productDTO);
+        }
     }
 
     @Test
@@ -180,6 +244,15 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void companySelect(){
+        List<CompanyDTO> companyDTOList = companyMapper.companySelect();
+        System.out.println(companyDTOList.size());
+        for(CompanyDTO companyDTO : companyDTOList) {
+            System.out.println(companyDTO);
+        }
+    }
+
+    @Test
     public void outcomeInsert(){
         OutcomeDTO outcomeDTO = new OutcomeDTO();
 
@@ -191,6 +264,15 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void outcomeSelect(){
+        List<OutcomeDTO> outcomeDTOList = outcomeMapper.outcomeSelect();
+        System.out.println(outcomeDTOList.size());
+        for(OutcomeDTO outcomeDTO : outcomeDTOList) {
+            System.out.println(outcomeDTO);
+        }
+    }
+
+    @Test
     public void order_Insert(){
         Order_DTO order_dto = new Order_DTO();
 
@@ -199,6 +281,15 @@ class DemoApplicationTests {
         order_dto.setORDER_AMOUNT(4500);
 
         order_Mapper.order_Insert(order_dto);
+    }
+
+    @Test
+    public void order_Select(){
+        List<Order_DTO> order_dtoList = order_Mapper.order_Select();
+        System.out.println(order_dtoList.size());
+        for(Order_DTO order_dto : order_dtoList) {
+            System.out.println(order_dto);
+        }
     }
 
     @Test
@@ -216,6 +307,15 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void orderlistSelect(){
+        List<OrderlistDTO> orderlistDTOList = orderlistMapper.orderlistSelect();
+        System.out.println(orderlistDTOList.size());
+        for(OrderlistDTO orderlistDTO : orderlistDTOList) {
+            System.out.println(orderlistDTO);
+        }
+    }
+
+    @Test
     public void maintainInsert(){
         MaintainDTO maintainDTO = new MaintainDTO();
 
@@ -225,6 +325,15 @@ class DemoApplicationTests {
         maintainDTO.setEMP_CODE("");
 
         maintainMapper.maintainInsert(maintainDTO);
+    }
+
+    @Test
+    public void maintainSelect(){
+        List<MaintainDTO> maintainDTOList = maintainMapper.maintainSelect();
+        System.out.println(maintainDTOList.size());
+        for(MaintainDTO maintainDTO : maintainDTOList) {
+            System.out.println(maintainDTO);
+        }
     }
 
     @Test
@@ -243,6 +352,15 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void membershipSelect(){
+        List<MembershipDTO> membershipDTOList = membershipMapper.membershipSelect();
+        System.out.println(membershipDTOList.size());
+        for(MembershipDTO membershipDTO : membershipDTOList) {
+            System.out.println(membershipDTO);
+        }
+    }
+
+    @Test
     public void displayInsert(){
         DisplayDTO displayDTO = new DisplayDTO();
 
@@ -254,6 +372,15 @@ class DemoApplicationTests {
         displayDTO.setPRODUCT_DC(0);
 
         displayMapper.displayInsert(displayDTO);
+    }
+
+    @Test
+    public void displaySelect(){
+        List<DisplayDTO> displayDTOList = displayMapper.displaySelect();
+        System.out.println(displayDTOList.size());
+        for(DisplayDTO displayDTO : displayDTOList) {
+            System.out.println(displayDTO);
+        }
     }
 
     @Test
@@ -271,6 +398,15 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void storageSelect(){
+        List<StorageDTO> storageDTOList = storageMapper.storageSelect();
+        System.out.println(storageDTOList.size());
+        for(StorageDTO storageDTO : storageDTOList) {
+            System.out.println(storageDTO);
+        }
+    }
+
+    @Test
     public void discardlistInsert(){
         DiscardlistDTO discardlistDTO = new DiscardlistDTO();
 
@@ -281,6 +417,15 @@ class DemoApplicationTests {
         discardlistDTO.setEMP_CODE("FGHIJ");
 
         discardlistMapper.discardlistInsert(discardlistDTO);
+    }
+
+    @Test
+    public void discardlistSelect(){
+        List<DiscardlistDTO> discardlistDTOList = discardlistMapper.discardlistSelect();
+        System.out.println(discardlistDTOList.size());
+        for(DiscardlistDTO discardlistDTO : discardlistDTOList) {
+            System.out.println(discardlistDTO);
+        }
     }
 
     @Test
@@ -295,6 +440,15 @@ class DemoApplicationTests {
         prodmanageDTO.setEMP_CODE("FGHIJ");
 
         prodmanageMapper.prodmanageInsert(prodmanageDTO);
+    }
+
+    @Test
+    public void prodmanageSelect(){
+        List<ProdmanageDTO> prodmanageDTOList = prodmanageMapper.prodmanageSelect();
+        System.out.println(prodmanageDTOList.size());
+        for(ProdmanageDTO prodmanageDTO : prodmanageDTOList) {
+            System.out.println(prodmanageDTO);
+        }
     }
 
     @Test
@@ -313,6 +467,15 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void purchaseSelect(){
+        List<PurchaseDTO> purchaseDTOList = purchaseMapper.purchaseSelect();
+        System.out.println(purchaseDTOList.size());
+        for(PurchaseDTO purchaseDTO : purchaseDTOList) {
+            System.out.println(purchaseDTO);
+        }
+    }
+
+    @Test
     public void purlistInsert(){
         PurlistDTO purlistDTO = new PurlistDTO();
 
@@ -324,6 +487,15 @@ class DemoApplicationTests {
         purlistDTO.setACC_MILEAGE(0);
 
         purlistMapper.purlistInsert(purlistDTO);
+    }
+
+    @Test
+    public void purlistSelect(){
+        List<PurlistDTO> purlistDTOList = purlistMapper.purlistSelect();
+        System.out.println(purlistDTOList.size());
+        for(PurlistDTO purlistDTO : purlistDTOList) {
+            System.out.println(purlistDTO);
+        }
     }
 
     @Test
@@ -339,4 +511,15 @@ class DemoApplicationTests {
 
         returnlistMapper.returnlistInsert(returnlistDTO);
     }
+
+    @Test
+    public void returnlistSelect(){
+        List<ReturnlistDTO> returnlistDTOList = returnlistMapper.returnlistSelect();
+        System.out.println(returnlistDTOList.size());
+        for(ReturnlistDTO returnlistDTO : returnlistDTOList) {
+            System.out.println(returnlistDTO);
+        }
+    }
+
+
 }

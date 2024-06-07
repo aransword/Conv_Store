@@ -3,9 +3,22 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.ReturnlistMapper">
+    <resultMap id="returnlistDTO" type="com.example.demo.dto.ReturnlistDTO">
+        <result property="RETURN_QUANTITY" column="RETURN_QUANTITY"/>
+        <result property="RETURN_PRICE" column="RETURN_PRICE"/>
+        <result property="RETURN_DATE" column="RETURN_DATE"/>
+        <result property="PRODUCT_CODE" column="PRODUCT_CODE"/>
+        <result property="PURCHASE_DATE" column="PURCHASE_DATE"/>
+        <result property="PURCHASE_CODE" column="PURCHASE_CODE"/>
+    </resultMap>
+
     <insert id="returnlistInsert" parameterType="com.example.demo.dto.ReturnlistDTO">
         BEGIN
             insert into RETURN_LIST(RETURN_QUANTITY, RETURN_PRICE, RETURN_DATE, PRODUCT_CODE, PURCHASE_DATE, PURCHASE_CODE) values (#{RETURN_QUANTITY}, #{RETURN_PRICE}, #{RETURN_DATE}, #{PRODUCT_CODE}, #{PURCHASE_DATE}, #{PURCHASE_CODE});
         END;
     </insert>
+
+    <select id="returnlistSelect" resultMap="returnlistDTO">
+        select * from RETURN_LIST
+    </select>
 </mapper>

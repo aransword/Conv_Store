@@ -3,9 +3,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.CompanyMapper">
+    <resultMap id="companyDTO" type="com.example.demo.dto.CompanyDTO">
+        <result property="COMPANY_CODE" column="COMPANY_CODE"/>
+        <result property="COMPANY_NAME" column="COMPANY_NAME"/>
+        <result property="COMPANY_PHONE_NO" column="COMPANY_PHONE_NO"/>
+        <result property="COMPANY_MAIL_NO" column="COMPANY_MAIL_NO"/>
+    </resultMap>
+
     <insert id="companyInsert" parameterType="com.example.demo.dto.CompanyDTO">
         BEGIN
            insert into company(COMPANY_CODE, COMPANY_NAME, COMPANY_PHONE_NO, COMPANY_MAIL_NO) values (#{COMPANY_CODE}, #{COMPANY_NAME}, #{COMPANY_PHONE_NO}, #{COMPANY_MAIL_NO});
         END;
     </insert>
+
+    <select id="companySelect" resultMap="companyDTO">
+        select * from company
+    </select>
 </mapper>

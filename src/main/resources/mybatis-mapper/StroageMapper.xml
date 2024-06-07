@@ -3,9 +3,22 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.StorageMapper">
+    <resultMap id="storageDTO" type="com.example.demo.dto.StorageDTO">
+        <result property="PRODUCT_NAME" column="PRODUCT_NAME"/>
+        <result property="STORAGE_QUANTITY" column="STORAGE_QUANTITY"/>
+        <result property="PRODUCT_PRICE" column="PRODUCT_PRICE"/>
+        <result property="PRODUCT_DC" column="PRODUCT_DC"/>
+        <result property="PB_PRODUCT" column="PB_PRODUCT"/>
+        <result property="PRODUCT_CODE" column="PRODUCT_CODE"/>
+    </resultMap>
+
     <insert id="storageInsert" parameterType="com.example.demo.dto.StorageDTO">
         BEGIN
             insert into STORAGE(PRODUCT_NAME, STORAGE_QUANTITY, PRODUCT_PRICE, PRODUCT_DC, PB_PRODUCT, PRODUCT_CODE) values (#{PRODUCT_NAME}, #{STORAGE_QUANTITY}, #{PRODUCT_PRICE}, #{PRODUCT_DC}, #{PB_PRODUCT}, #{PRODUCT_CODE});
         END;
     </insert>
+
+    <select id="storageSelect" resultMap="storageDTO">
+        select * from STORAGE
+    </select>
 </mapper>

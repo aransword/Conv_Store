@@ -3,9 +3,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.Order_Mapper">
+    <resultMap id="order_DTO" type="com.example.demo.dto.Order_DTO">
+        <result property="ORDER_AMOUNT" column="ORDER_AMOUNT"/>
+        <result property="ORDER_CODE" column="ORDER_CODE"/>
+        <result property="ORDER_DATE" column="ORDER_DATE"/>
+    </resultMap>
+
     <insert id="order_Insert" parameterType="com.example.demo.dto.Order_DTO">
         BEGIN
            insert into ORDER_(ORDER_AMOUNT, ORDER_CODE, ORDER_DATE) values (#{ORDER_AMOUNT}, #{ORDER_CODE}, #{ORDER_DATE});
         END;
     </insert>
+
+    <select id="order_Select" resultMap="order_DTO">
+        select * from ORDER_
+    </select>
 </mapper>

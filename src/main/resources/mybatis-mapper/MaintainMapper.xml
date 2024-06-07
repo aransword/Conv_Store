@@ -3,9 +3,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.MaintainMapper">
+    <resultMap id="maintainDTO" type="com.example.demo.dto.MaintainDTO">
+        <result property="MAINTAIN_AMOUNT" column="MAINTAIN_AMOUNT"/>
+        <result property="EMP_CODE" column="EMP_CODE"/>
+        <result property="MAINTAIN_CODE" column="MAINTAIN_CODE"/>
+        <result property="MAINTAIN_DATE" column="MAINTAIN_DATE"/>
+    </resultMap>
+
     <insert id="maintainInsert" parameterType="com.example.demo.dto.MaintainDTO">
         BEGIN
            insert into maintain(MAINTAIN_AMOUNT, EMP_CODE, MAINTAIN_CODE, MAINTAIN_DATE) values (#{MAINTAIN_AMOUNT}, #{EMP_CODE}, #{MAINTAIN_CODE}, #{MAINTAIN_DATE});
         END;
     </insert>
+
+    <select id="maintainSelect" resultMap="maintainDTO">
+        select * from maintain
+    </select>
 </mapper>

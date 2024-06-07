@@ -3,9 +3,23 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.MembershipMapper">
+    <resultMap id="membershipDTO" type="com.example.demo.dto.MembershipDTO">
+        <result property="MEMBERSHIP_CODE" column="MEMBERSHIP_CODE"/>
+        <result property="MEMBERSHIP_NAME" column="MEMBERSHIP_NAME"/>
+        <result property="MEMBERSHIP_AGE" column="MEMBERSHIP_AGE"/>
+        <result property="MEMBERSHIP_GENDER" column="MEMBERSHIP_GENDER"/>
+        <result property="MEMBERSHIP_MAIL_NO" column="MEMBERSHIP_MAIL_NO"/>
+        <result property="MEMBERSHIP_PHONE_NO" column="MEMBERSHIP_PHONE_NO"/>
+        <result property="MEMBERSHIP_MILEAGE" column="MEMBERSHIP_MILEAGE"/>
+    </resultMap>
+
     <insert id="membershipInsert" parameterType="com.example.demo.dto.MembershipDTO">
         BEGIN
            insert into MEMBERSHIP(MEMBERSHIP_CODE, MEMBERSHIP_NAME, MEMBERSHIP_AGE, MEMBERSHIP_GENDER, MEMBERSHIP_MAIL_NO, MEMBERSHIP_PHONE_NO, MEMBERSHIP_MILEAGE) values (#{MEMBERSHIP_CODE}, #{MEMBERSHIP_NAME}, #{MEMBERSHIP_AGE}, #{MEMBERSHIP_GENDER}, #{MEMBERSHIP_MAIL_NO}, #{MEMBERSHIP_PHONE_NO}, #{MEMBERSHIP_MILEAGE});
         END;
     </insert>
+
+    <select id="membershipSelect" resultMap="membershipDTO">
+        select * from MEMBERSHIP
+    </select>
 </mapper>

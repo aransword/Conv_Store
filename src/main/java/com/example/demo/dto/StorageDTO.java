@@ -12,4 +12,9 @@ public class StorageDTO {
     private int STORAGE_QUANTITY;
     private int PRODUCT_DC;
     private String PB_PRODUCT;
+
+    @Override
+    public String toString() {
+        return "[" + PRODUCT_CODE + ", " + PRODUCT_NAME + ", " + PRODUCT_PRICE + ", " + STORAGE_QUANTITY + ", " + PRODUCT_DC + ", " + PB_PRODUCT + "]";
+    }
 }

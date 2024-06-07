@@ -3,9 +3,22 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.ProdmanageMapper">
+    <resultMap id="prodmanageDTO" type="com.example.demo.dto.ProdmanageDTO">
+        <result property="MANAGE_DATE" column="MANAGE_DATE"/>
+        <result property="MANAGE_TYPE_CODE" column="MANAGE_TYPE_CODE"/>
+        <result property="ERROR_QUANTITY" column="ERROR_QUANTITY"/>
+        <result property="ERROR_REASON" column="ERROR_REASON"/>
+        <result property="EMP_CODE" column="EMP_CODE"/>
+        <result property="PRODUCT_CODE" column="PRODUCT_CODE"/>
+    </resultMap>
+
     <insert id="prodmanageInsert" parameterType="com.example.demo.dto.ProdmanageDTO">
         BEGIN
            insert into PROD_MANAGE(MANAGE_DATE, MANAGE_TYPE_CODE, ERROR_QUANTITY, ERROR_REASON, EMP_CODE, PRODUCT_CODE) values (#{MANAGE_DATE}, #{MANAGE_TYPE_CODE}, #{ERROR_QUANTITY}, #{ERROR_REASON}, #{EMP_CODE}, #{PRODUCT_CODE});
         END;
     </insert>
+
+    <select id="prodmanageSelect" resultMap="prodmanageDTO">
+        select * from PROD_MANAGE
+    </select>
 </mapper>

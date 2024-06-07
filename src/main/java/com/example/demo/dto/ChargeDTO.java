@@ -13,4 +13,9 @@ public class ChargeDTO {
     private String PAYER;
     private int PAY_AMOUNT;
     private String EMP_CODE;
+
+    @Override
+    public String toString() {
+        return "[" + PAY_DATE + ", " + CHARGE_CODE + ", " + INST_NAME + ", " + CHARGE_NAME + ", " + PAY_AMOUNT + ", " + EMP_CODE + "]";
+    }
 }

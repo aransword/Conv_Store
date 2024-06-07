@@ -3,9 +3,30 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.PurchaseMapper">
+    <resultMap id="purchaseDTO" type="com.example.demo.dto.PurchaseDTO">
+        <result property="PURCHASE_MILEAGE" column="PURCHASE_MILEAGE"/>
+        <result property="CARD_ACCOUNT_NO" column="CARD_ACCOUNT_NO"/>
+        <result property="CARD_PURCHASE_AMOUNT" column="CARD_PURCHASE_AMOUNT"/>
+        <result property="VOUCHER_NO" column="VOUCHER_NO"/>
+        <result property="VOUCHER_PURCHASE_AMOUNT" column="VOUCHER_PURCHASE_AMOUNT"/>
+        <result property="COUPON_NO" column="COUPON_NO"/>
+        <result property="COUPON_PURCHASE_AMOUNT" column="COUPON_PURCHASE_AMOUNT"/>
+        <result property="CASH_PURCHASE_AMOUNT" column="CASH_PURCHASE_AMOUNT"/>
+        <result property="USE_MILEAGE" column="USE_MILEAGE"/>
+        <result property="EMP_CODE" column="EMP_CODE"/>
+        <result property="MEMBERSHIP_CODE" column="MEMBERSHIP_CODE"/>
+        <result property="PURCHASE_DATE" column="PURCHASE_DATE"/>
+        <result property="PURCHASE_CODE" column="PURCHASE_CODE"/>
+        <result property="PURCHASE_AMOUNT" column="PURCHASE_AMOUNT"/>
+    </resultMap>
+
     <insert id="purchaseInsert" parameterType="com.example.demo.dto.PurchaseDTO">
         BEGIN
            insert into PURCHASE(PURCHASE_MILEAGE, CARD_ACCOUNT_NO, CARD_PURCHASE_AMOUNT, VOUCHER_NO, VOUCHER_PURCHASE_AMOUNT, COUPON_NO, COUPON_PURCHASE_AMOUNT, CASH_PURCHASE_AMOUNT, USE_MILEAGE, EMP_CODE, MEMBERSHIP_CODE, PURCHASE_DATE, PURCHASE_CODE, PURCHASE_AMOUNT) values (#{PURCHASE_MILEAGE}, #{CARD_ACCOUNT_NO}, #{CARD_PURCHASE_AMOUNT}, #{VOUCHER_NO}, #{VOUCHER_PURCHASE_AMOUNT}, #{COUPON_NO}, #{COUPON_PURCHASE_AMOUNT}, #{CASH_PURCHASE_AMOUNT}, #{USE_MILEAGE}, #{EMP_CODE}, #{MEMBERSHIP_CODE}, #{PURCHASE_DATE}, #{PURCHASE_CODE}, #{PURCHASE_AMOUNT});
         END;
     </insert>
+
+    <select id="purchaseSelect" resultMap="purchaseDTO">
+        select * from purchase
+    </select>
 </mapper>

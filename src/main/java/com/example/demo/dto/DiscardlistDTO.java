@@ -11,4 +11,9 @@ public class DiscardlistDTO {
     private int DISCARD_QUANTITY;
     private String EMP_CODE;
     private String PRODUCT_CODE;
+
+    @Override
+    public String toString() {
+        return "[" + DISCARD_DATE + ", " + DISCARD_TYPE_CODE + ", " + DISCARD_QUANTITY + ", " + EMP_CODE + ", " + PRODUCT_CODE + "]";
+    }
 }

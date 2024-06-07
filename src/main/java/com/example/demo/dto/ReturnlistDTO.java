@@ -12,4 +12,9 @@ public class ReturnlistDTO {
     private String RETURN_DATE;
     private int RETURN_PRICE;
     private int RETURN_QUANTITY;
+
+    @Override
+    public String toString() {
+        return "[" + PURCHASE_DATE + ", " + PURCHASE_CODE + ", " + PRODUCT_CODE + ", " + RETURN_DATE + ", " + RETURN_PRICE + ", " + RETURN_QUANTITY + "]";
+    }
 }
