@@ -26,7 +26,8 @@ class DemoApplicationTests {
 
     @Autowired
     private LotteryMapper lotteryMapper;
-
+    @Autowired
+    private DeliveryMapper deliveryMapper;
 
 
     @Test
@@ -92,6 +93,24 @@ class DemoApplicationTests {
         lotteryDTO.setLOTTERY_NO("1, 4, 10, 26, 32, 44");
         lotteryDTO.setLOTTERY_CODE("FGHIJ");
         lotteryMapper.lotteryInsert(lotteryDTO);
+    }
+
+    @Test
+    public void deliveryInsert(){
+        DeliveryDTO deliveryDTO = new DeliveryDTO();
+
+        deliveryDTO.setDELIVERY_DATE("20240607");
+        deliveryDTO.setDELIVERY_CODE("100001");
+        deliveryDTO.setDELIVERY_AMOUNT(3000);
+        deliveryDTO.setRECEIVER("송승우");
+        deliveryDTO.setSENDER("서웅진");
+        deliveryDTO.setSOURCE("서울시립대정문점");
+        deliveryDTO.setDEST("서울시립대후문점");
+        deliveryDTO.setDELIVERY_CONTENT("책");
+        deliveryDTO.setCURRENT_STATUS("이동중");
+        deliveryDTO.setEMP_CODE("ABCDE");
+
+        deliveryMapper.deliveryInsert(deliveryDTO);
     }
 
 

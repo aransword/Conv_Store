@@ -4,6 +4,8 @@
 
 <mapper namespace="com.example.demo.mapper.DeliveryMapper">
     <insert id="deliveryInsert" parameterType="com.example.demo.dto.DeliveryDTO">
-        insert into delivery(RECEIVER, SENDER, SOURCE, DEST, DELIVERY_CONTENT, DELIVERY_AMOUNT, CURRENT_STATUS, EMP_CODE, DELIVERY_DATE, DELIVERY_CODE) values (#{RECEIVER}, #{SENDER}, #{SOURCE}, #{DEST}, #{DELIVERY_CONTENT}, #{DELIVERY_AMOUNT}, #{CURRENT_STATUS}, #{EMP_CODE}, #{DELIVERY_DATE}, #{DELIVERY_CODE});
+        BEGIN
+            insert into delivery(RECEIVER, SENDER, SOURCE, DEST, DELIVERY_CONTENT, DELIVERY_AMOUNT, CURRENT_STATUS, EMP_CODE, DELIVERY_DATE, DELIVERY_CODE) values (#{RECEIVER}, #{SENDER}, #{SOURCE}, #{DEST}, #{DELIVERY_CONTENT}, #{DELIVERY_AMOUNT}, #{CURRENT_STATUS}, #{EMP_CODE}, #{DELIVERY_DATE}, #{DELIVERY_CODE});
+        END;
     </insert>
 </mapper>
