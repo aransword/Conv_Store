@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.MembershipMapper">
+    <insert id="membershipInsert" parameterType="com.example.demo.dto.MembershipDTO">
+        BEGIN
+           insert into MEMBERSHIP(MEMBERSHIP_CODE, MEMBERSHIP_NAME, MEMBERSHIP_AGE, MEMBERSHIP_GENDER, MEMBERSHIP_MAIL_NO, MEMBERSHIP_PHONE_NO, MEMBERSHIP_MILEAGE) values (#{MEMBERSHIP_CODE}, #{MEMBERSHIP_NAME}, #{MEMBERSHIP_AGE}, #{MEMBERSHIP_GENDER}, #{MEMBERSHIP_MAIL_NO}, #{MEMBERSHIP_PHONE_NO}, #{MEMBERSHIP_MILEAGE});
+        END;
+    </insert>
+</mapper>

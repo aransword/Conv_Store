@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.PurlistMapper">
+    <insert id="purlistInsert" parameterType="com.example.demo.dto.PurlistDTO">
+        BEGIN
+            insert into PUR_LIST(PURCHASE_PRODUCT_QUANTITY, PURCHASE_PRODUCT_PRICE, ACC_MILEAGE, PRODUCT_CODE, PURCHASE_DATE, PURCHASE_CODE) values (#{PURCHASE_PRODUCT_QUANTITY}, #{PURCHASE_PRODUCT_PRICE}, #{ACC_MILEAGE}, #{PRODUCT_CODE}, #{PURCHASE_DATE}, #{PURCHASE_CODE});
+        END;
+    </insert>
+</mapper>

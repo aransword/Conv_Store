@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.DisplayMapper">
+    <insert id="displayInsert" parameterType="com.example.demo.dto.DisplayDTO">
+        BEGIN
+           insert into DISPLAY(PRODUCT_NAME, DISPLAY_QUANTITY, PRODUCT_PRICE, PRODUCT_DC, PB_PRODUCT, PRODUCT_CODE) values (#{PRODUCT_NAME}, #{DISPLAY_QUANTITY}, #{PRODUCT_PRICE}, #{PRODUCT_DC}, #{PB_PRODUCT}, #{PRODUCT_CODE});
+        END;
+    </insert>
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.CompanyMapper">
+    <insert id="companyInsert" parameterType="com.example.demo.dto.CompanyDTO">
+        BEGIN
+           insert into company(COMPANY_CODE, COMPANY_NAME, COMPANY_PHONE_NO, COMPANY_MAIL_NO) values (#{COMPANY_CODE}, #{COMPANY_NAME}, #{COMPANY_PHONE_NO}, #{COMPANY_MAIL_NO});
+        END;
+    </insert>
+</mapper>

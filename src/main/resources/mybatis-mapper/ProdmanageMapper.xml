@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.ProdmanageMapper">
+    <insert id="prodmanageInsert" parameterType="com.example.demo.dto.ProdmanageDTO">
+        BEGIN
+           insert into PROD_MANAGE(MANAGE_DATE, MANAGE_TYPE_CODE, ERROR_QUANTITY, ERROR_REASON, EMP_CODE, PRODUCT_CODE) values (#{MANAGE_DATE}, #{MANAGE_TYPE_CODE}, #{ERROR_QUANTITY}, #{ERROR_REASON}, #{EMP_CODE}, #{PRODUCT_CODE});
+        END;
+    </insert>
+</mapper>

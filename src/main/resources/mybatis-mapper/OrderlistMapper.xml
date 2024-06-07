@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.OrderlistMapper">
+    <insert id="orderlistInsert" parameterType="com.example.demo.dto.OrderlistDTO">
+        BEGIN
+           insert into ORDER_LIST(ORDER_PRODUCT_QUANTITY, ORDER_PRODUCT_PRICE, COMPANY_CODE, PRODUCT_CODE, ORDER_CODE, ORDER_DATE) values (#{ORDER_PRODUCT_QUANTITY}, #{ORDER_PRODUCT_PRICE}, #{COMPANY_CODE}, #{PRODUCT_CODE}, #{ORDER_CODE}, #{ORDER_DATE});
+        END;
+    </insert>
+</mapper>

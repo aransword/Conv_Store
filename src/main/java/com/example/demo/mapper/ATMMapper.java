@@ -5,6 +5,5 @@ import com.example.demo.dto.ATMDTO;
 
 @Mapper
 public interface ATMMapper {
-
     void ATMInsert(ATMDTO atmDTO);
 }
