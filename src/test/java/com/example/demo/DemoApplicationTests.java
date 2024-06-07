@@ -7,8 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.demo.dto.*;
 
-import java.text.StringCharacterIterator;
-import java.util.*;
+
 
 @SpringBootTest
 class DemoApplicationTests {
@@ -23,7 +22,7 @@ class DemoApplicationTests {
     private ATMMapper atmMapper;
 
     @Autowired
-    private IncomeMapper incomeMapper;;
+    private IncomeMapper incomeMapper;
 
     @Autowired
     private LotteryMapper lotteryMapper;
