@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.ATMMapper">
+    <insert id="ATMInsert" parameterType="com.example.demo.dto.ATMDTO">
+        BEGIN
+            insert into ATM(ATM_USE_DATE, ATM_CODE, DNW_TYPE_CODE, ATM_ACCOUNT_NO, DNW_AMOUNT, EMP_CODE) values (#{ATM_USE_DATE}, #{ATM_CODE}, #{DNW_TYPE_CODE}, #{ATM_ACCOUNT_NO}, #{DNW_AMOUNT}, #{EMP_CODE});
+        END;
+    </insert>
+</mapper>

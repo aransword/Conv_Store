@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.LotteryMapper">
+    <insert id="lotteryInsert" parameterType="com.example.demo.dto.LotteryDTO">
+        BEGIN
+            insert into lottery(lottery_sale_date, lottery_code, lottery_no, emp_code) values (#{LOTTERY_SALE_DATE}, #{LOTTERY_CODE}, #{LOTTERY_NO}, #{EMP_CODE});
+        END;
+    </insert>
+</mapper>
