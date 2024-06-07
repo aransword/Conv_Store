@@ -18,3 +18,4 @@ DTO List로 반환받기 위해 Mapper.xml 파일마다 resultMap을 작성하�
  - 마일리지의 도메인을 VARCHAR2로 잘못 썼다. 이를 NUMBER로 수정하였다.
  - MEMBERSHIP 테이블의 전화번호 컬럼의 이름이 MEMBERTHIP... 이었다. 이를 교체했다.
  - 진열상품의 자기참조 컬럼인 증정품 컬럼이 logical diagram 상에서는 존재하지만 physical diagram 상에서는 따로 이를 설정해주지 않아 소실되었다. 이를 추가해주었다.
+ - PURCHASE 테이블의 카드번호, 상품권번호, 쿠폰번호 컬럼이 null이 허용되지 않아 이를 수정했다.
