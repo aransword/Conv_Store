@@ -9,4 +9,6 @@ import java.util.*;
 public interface StorageMapper {
     void storageInsert(StorageDTO storageDTO);
     List<StorageDTO> storageSelect();
+    StorageDTO storageNameSelect(String NAME);
+    StorageDTO storageCodeSelect(String CODE);
 }

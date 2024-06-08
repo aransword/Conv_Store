@@ -9,4 +9,6 @@ import java.util.*;
 public interface DiscardlistMapper {
     void discardlistInsert(DiscardlistDTO discardlistDTO);
     List<DiscardlistDTO> discardlistSelect();
+    List<DiscardlistDTO> discardlistDateCodeSelect(DiscardlistDTO discardlistDTO);
+    DiscardlistDTO discardlistDateCodePcodeSelect(DiscardlistDTO discardlistDTO);
 }

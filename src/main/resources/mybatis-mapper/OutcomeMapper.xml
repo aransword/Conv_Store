@@ -18,4 +18,12 @@
     <select id="outcomeSelect" resultMap="outcomeDTO">
         select * from outcome
     </select>
+
+    <select id="outcomeDateSelect" parameterType="string" resultMap="outcomeDTO">
+        select * from OUTCOME where OUTCOME_DATE = #{DATE}
+    </select>
+
+    <select id="outcomeDateCodeSelect" parameterType="com.example.demo.dto.OutcomeDTO" resultMap="outcomeDTO">
+        select * from OUTCOME where OUTCOME_DATE = #{OUTCOME_DATE} and OUTCOME_CODE = #{OUTCOME_CODE}
+    </select>
 </mapper>

@@ -22,4 +22,16 @@
     <select id="membershipSelect" resultMap="membershipDTO">
         select * from MEMBERSHIP
     </select>
+
+    <select id="membershipNameSelect" parameterType="string" resultMap="membershipDTO">
+        select * from MEMBERSHIP where MEMBERSHIP_NAME = #{NAME}
+    </select>
+
+    <select id="membershipPhoneSelect" parameterType="string" resultMap="membershipDTO">
+        select * from MEMBERSHIP where MEMBERSHIP_PHONE_NO = #{PHONE}
+    </select>
+
+    <select id="membershipCodeSelect" parameterType="string" resultMap="membershipDTO">
+        select * from MEMBERSHIP where MEMBERSHIP_CODE = #{CODE}
+    </select>
 </mapper>

@@ -9,4 +9,6 @@ import java.util.*;
 public interface ATMMapper {
     void ATMInsert(ATMDTO atmDTO);
     List<ATMDTO> ATMSelect();
+    List<ATMDTO> ATMDateSelect(String DATE);
+    ATMDTO ATMDateCodeSelect(ATMDTO atmDTO);
 }

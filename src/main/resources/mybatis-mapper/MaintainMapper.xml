@@ -19,4 +19,16 @@
     <select id="maintainSelect" resultMap="maintainDTO">
         select * from maintain
     </select>
+
+    <select id="maintainEmpcodeSelect" parameterType="string" resultMap="maintainDTO">
+        select * from maintain where EMP_CODE = #{EMP_CODE}
+    </select>
+
+    <select id="maintainDateSelect" parameterType="string" resultMap="maintainDTO">
+        select * from maintain where MAINTAIN_DATE = #{DATE}
+    </select>
+
+    <select id="maintainDateCodeSelect" parameterType="com.example.demo.dto.MaintainDTO" resultMap="maintainDTO">
+        select * from maintain where MAINTAIN_DATE = #{MAINTAIN_DATE} and MAINTAIN_CODE = #{MAINTAIN_CODE}
+    </select>
 </mapper>

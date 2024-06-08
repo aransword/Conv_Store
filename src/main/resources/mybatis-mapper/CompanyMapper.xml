@@ -19,4 +19,12 @@
     <select id="companySelect" resultMap="companyDTO">
         select * from company
     </select>
+
+    <select id="companyCodeSelect" parameterType="string" resultMap="companyDTO">
+        select * from company where COMPANY_CODE = #{CODE}
+    </select>
+
+    <select id="companyNameSelect" parameterType="string" resultMap="companyDTO">
+        select * from company where COMPANY_NAME = #{NAME}
+    </select>
 </mapper>

@@ -9,4 +9,6 @@ import java.util.*;
 public interface OutcomeMapper {
     void outcomeInsert(OutcomeDTO outcomeDTO);
     List<OutcomeDTO> outcomeSelect();
+    List<OutcomeDTO> outcomeDateSelect(String DATE);
+    OutcomeDTO outcomeDateCodeSelect(OutcomeDTO outcomeDTO);
 }

@@ -10,4 +10,6 @@ public interface IncomeMapper {
 
     void incomeInsert(IncomeDTO incomeDTO);
     List<IncomeDTO> incomeSelect();
+    List<IncomeDTO> incomeDateSelect(String DATE);
+    IncomeDTO incomeDateCodeSelect(IncomeDTO incomeDTO);
 }

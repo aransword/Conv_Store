@@ -21,4 +21,16 @@
     <select id="orderlistSelect" resultMap="orderlistDTO">
         select * from ORDER_LIST
     </select>
+
+    <select id="orderlistDateSelect" parameterType="string" resultMap="orderlistDTO">
+        select * from ORDER_LIST where ORDER_DATE = #{DATE}
+    </select>
+
+    <select id="orderlistDateCodeSelect" parameterType="com.example.demo.dto.OrderlistDTO" resultMap="orderlistDTO">
+        select * from ORDER_LIST where ORDER_DATE = #{ORDER_DATE} and ORDER_CODE = #{ORDER_CODE}
+    </select>
+
+    <select id="orderlistDateCodePcodeSelect" parameterType="com.example.demo.dto.OrderlistDTO" resultMap="orderlistDTO">
+        select * from ORDER_LIST where ORDER_DATE = #{ORDER_DATE} and ORDER_CODE = #{ORDER_CODE} and PRODUCT_CODE = #{PRODUCT_CODE}
+    </select>
 </mapper>

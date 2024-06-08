@@ -9,4 +9,5 @@ import java.util.*;
 public interface ProductMapper {
     void productInsert(ProductDTO productDTO);
     List<ProductDTO> productSelect();
+    ProductDTO productCodeSelect(String CODE);
 }

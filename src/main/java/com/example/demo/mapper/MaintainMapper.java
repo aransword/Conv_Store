@@ -9,4 +9,7 @@ import java.util.*;
 public interface MaintainMapper {
     void maintainInsert(MaintainDTO maintainDTO);
     List<MaintainDTO> maintainSelect();
+    List<MaintainDTO> maintainEmpcodeSelect(String EMP_CODE);
+    List<MaintainDTO> maintainDateSelect(String DATE);
+    MaintainDTO maintainDateCodeSelect(MaintainDTO maintainDTO);
 }

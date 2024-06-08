@@ -21,4 +21,12 @@
     <select id="ATMSelect" resultMap="ATMDTO">
         select * from ATM
     </select>
+
+    <select id="ATMDateSelect" parameterType="string" resultMap="ATMDTO">
+        select * from ATM where ATM_USE_DATE = #{DATE}
+    </select>
+
+    <select id="ATMDateCodeSelect" parameterType="com.example.demo.dto.ATMDTO" resultMap="ATMDTO">
+        select * from ATM where ATM_USE_DATE = #{ATM_USE_DATE} and ATM_CODE = #{ATM_CODE}
+    </select>
 </mapper>

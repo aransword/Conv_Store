@@ -20,4 +20,12 @@
     <select id="discardlistSelect" resultMap="discardlistDTO">
         select * from DISCARD_LIST
     </select>
+
+    <select id="discardlistDateCodeSelect" parameterType="com.example.demo.dto.DiscardlistDTO" resultMap="discardlistDTO">
+        select * from DISCARD_LIST where DISCARD_TYPE_CODE = #{DISCARD_TYPE_CODE} and DISCARD_DATE = #{DISCARD_DATE}
+    </select>
+
+    <select id="discardlistDateCodePcodeSelect" parameterType="com.example.demo.dto.DiscardlistDTO" resultMap="discardlistDTO">
+        select * from DISCARD_LIST where DISCARD_TYPE_CODE = #{DISCARD_TYPE_CODE} and DISCARD_DATE = #{DISCARD_DATE} and PRODUCT_CODE = #{PRODUCT_CODE}
+    </select>
 </mapper>

@@ -19,4 +19,8 @@
     <select id="productSelect" resultMap="productDTO">
         select * from product
     </select>
+
+    <select id="productCodeSelect" parameterType="string" resultMap="productDTO">
+        select * from PRODUCT where PRODUCT_CODE = #{CODE}
+    </select>
 </mapper>

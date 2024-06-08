@@ -19,7 +19,12 @@
             insert into employee(EMP_CODE, EMP_NAME, EMP_AGE, EMP_GENDER, EMP_PHONE_NO, EMP_MAIL_NO, EMP_ACCOUNT_NO, PART, SALARY) values (#{EMP_CODE}, #{EMP_NAME}, #{EMP_AGE}, #{EMP_GENDER}, #{EMP_PHONE_NO}, #{EMP_MAIL_NO}, #{EMP_ACCOUNT_NO}, #{PART}, #{SALARY});
         END;
     </insert>
+
     <select id="employeeSelect" resultMap="employeeDTO">
         select * from EMPLOYEE
+    </select>
+
+    <select id="employeeCodeSelect" parameterType="string" resultMap="employeeDTO">
+        select * from EMPLOYEE where EMP_CODE = #{CODE}
     </select>
 </mapper>

@@ -9,4 +9,6 @@ import java.util.*;
 public interface PurlistMapper {
     void purlistInsert(PurlistDTO purlistDTO);
     List<PurlistDTO> purlistSelect();
+    List<PurlistDTO> purlistDateCodeSelect(PurlistDTO purlistDTO);
+    PurlistDTO purlistDateCodePcodeSelect(PurlistDTO purlistDTO);
 }

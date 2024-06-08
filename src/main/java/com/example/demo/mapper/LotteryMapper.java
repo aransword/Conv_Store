@@ -9,4 +9,6 @@ import java.util.*;
 public interface LotteryMapper {
     void lotteryInsert(LotteryDTO lotteryDTO);
     List<LotteryDTO> lotterySelect();
+    List<LotteryDTO> lotteryDateSelect(String DATE);
+    LotteryDTO lotteryDateCodeSelect(LotteryDTO lotteryDTO);
 }

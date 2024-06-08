@@ -21,4 +21,12 @@
     <select id="returnlistSelect" resultMap="returnlistDTO">
         select * from RETURN_LIST
     </select>
+
+    <select id="returnlistDateSelect" parameterType="string" resultMap="returnlistDTO">
+        select * from RETURN_LIST where RETURN_DATE = #{DATE}
+    </select>
+
+    <select id="returnlistPurdatePurcodePcodeSelect" parameterType="com.example.demo.dto.ReturnlistDTO" resultMap="returnlistDTO">
+        select * from RETURN_LIST where PURCHASE_DATE = #{PURCHASE_DATE} and PURCHASE_CODE = #{PURCHASE_CODE} and PRODUCT_CODE = #{PRODUCT_CODE}
+    </select>
 </mapper>

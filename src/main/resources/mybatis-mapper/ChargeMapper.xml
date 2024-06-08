@@ -22,4 +22,16 @@
     <select id="chargeSelect" resultMap="chargeDTO">
         select * from charge
     </select>
+
+    <select id="chargeDateSelect" parameterType="string" resultMap="chargeDTO">
+        select * from charge where PAY_DATE = #{DATE}
+    </select>
+
+    <select id="chargePayerSelect" parameterType="string" resultMap="chargeDTO">
+        select * from charge where PAYER = #{PAYER}
+    </select>
+
+    <select id="chargeDateCodeSelect" parameterType="com.example.demo.dto.ChargeDTO" resultMap="chargeDTO">
+        select * from charge where PAY_DATE = #{PAY_DATE} and CHARGE_CODE = #{CHARGE_CODE}
+    </select>
 </mapper>

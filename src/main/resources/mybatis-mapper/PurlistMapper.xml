@@ -21,4 +21,12 @@
     <select id="purlistSelect" resultMap="purlistDTO">
         select * from PUR_LIST
     </select>
+
+    <select id="purlistDateCodeSelect" parameterType="com.example.demo.dto.PurlistDTO" resultMap="purlistDTO">
+        select * from PUR_LIST where PURCHASE_DATE = #{PURCHASE_DATE} and PURCHASE_CODE = #{PURCHASE_CODE}
+    </select>
+
+    <select id="purlistDateCodePcodeSelect" parameterType="com.example.demo.dto.PurlistDTO" resultMap="purlistDTO">
+        select * from PUR_LIST where PURCHASE_DATE = #{PURCHASE_DATE} and PURCHASE_CODE = #{PURCHASE_CODE} and PRODUCT_CODE = #{PRODUCT_CODE}
+    </select>
 </mapper>

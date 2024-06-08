@@ -21,4 +21,12 @@
     <select id="storageSelect" resultMap="storageDTO">
         select * from STORAGE
     </select>
+
+    <select id="storageNameSelect" parameterType="string" resultMap="storageDTO">
+        select * from STORAGE where PRODUCT_NAME = #{NAME}
+    </select>
+
+    <select id="storageCodeSelect" parameterType="string" resultMap="storageDTO">
+        select * from STORAGE where PRODUCT_CODE = #{CODE}
+    </select>
 </mapper>

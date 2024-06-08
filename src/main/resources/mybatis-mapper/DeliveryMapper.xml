@@ -25,4 +25,12 @@
     <select id="deliverySelect" resultMap="deliveryDTO">
         select * from DELIVERY
     </select>
+
+    <select id="deliveryDateCodeSelect" parameterType="com.example.demo.dto.DeliveryDTO" resultMap="deliveryDTO">
+        select * from DELIVERY where DELIVERY_DATE = #{DELIVERY_DATE} and DELIVERY_CODE = #{DELIVERY_CODE}
+    </select>
+
+    <select id="deliverySenderSelect" parameterType="string" resultMap="deliveryDTO">
+        select * from DELIVERY where SENDER = #{SENDER}
+    </select>
 </mapper>

@@ -29,4 +29,12 @@
     <select id="purchaseSelect" resultMap="purchaseDTO">
         select * from purchase
     </select>
+
+    <select id="purchaseDateSelect" parameterType="string" resultMap="purchaseDTO">
+        select * from purchase where PURCHASE_DATE = #{DATE}
+    </select>
+
+    <select id="purchaseDateCodeSelect" parameterType="com.example.demo.dto.PurchaseDTO" resultMap="purchaseDTO">
+        select * from PURCHASE where PURCHASE_DATE = #{PURCHASE_DATE} and PURCHASE_CODE = #{PURCHASE_CODE}
+    </select>
 </mapper>

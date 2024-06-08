@@ -9,4 +9,6 @@ import java.util.*;
 public interface DisplayMapper {
     void displayInsert(DisplayDTO displayDTO);
     List<DisplayDTO> displaySelect();
+    DisplayDTO displayCodeSelect(String CODE);
+    DisplayDTO displayNameSelect(String NAME);
 }

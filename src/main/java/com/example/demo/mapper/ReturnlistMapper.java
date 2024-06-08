@@ -9,4 +9,6 @@ import java.util.*;
 public interface ReturnlistMapper {
     void returnlistInsert(ReturnlistDTO returnlistDTO);
     List<ReturnlistDTO> returnlistSelect();
+    List<ReturnlistDTO> returnlistDateSelect(String DATE);
+    ReturnlistDTO returnlistPurdatePurcodePcodeSelect(ReturnlistDTO returnlistDTO);
 }

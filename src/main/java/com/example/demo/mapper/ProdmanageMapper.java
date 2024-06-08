@@ -9,4 +9,6 @@ import java.util.*;
 public interface ProdmanageMapper {
     void prodmanageInsert(ProdmanageDTO prodmanageDTO);
     List<ProdmanageDTO> prodmanageSelect();
+    List<ProdmanageDTO> prodmanageDateCodeSelect(ProdmanageDTO prodmanageDTO);
+    ProdmanageDTO prodmanageDateCodePcodeSelect(ProdmanageDTO prodmanageDTO);
 }

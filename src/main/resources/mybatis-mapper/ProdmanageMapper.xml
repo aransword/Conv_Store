@@ -21,4 +21,12 @@
     <select id="prodmanageSelect" resultMap="prodmanageDTO">
         select * from PROD_MANAGE
     </select>
+
+    <select id="prodmanageDateCodeSelect" parameterType="com.example.demo.dto.ProdmanageDTO" resultMap="prodmanageDTO">
+        select * from PROD_MANAGE where MANAGE_DATE = #{MANAGE_DATE} and MANAGE_TYPE_CODE = #{MANAGE_TYPE_CODE}
+    </select>
+
+    <select id="prodmanageDateCodePcodeSelect" parameterType="com.example.demo.dto.ProdmanageDTO" resultMap="prodmanageDTO">
+        select * from PROD_MANAGE where MANAGE_DATE = #{MANAGE_DATE} and MANAGE_TYPE_CODE = #{MANAGE_TYPE_CODE} and PRODUCT_CODE = #{PRODUCT_CODE}
+    </select>
 </mapper>

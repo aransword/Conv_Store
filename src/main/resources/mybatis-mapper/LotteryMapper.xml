@@ -19,4 +19,12 @@
     <select id="lotterySelect" resultMap="lotteryDTO">
         select * from LOTTERY
     </select>
+
+    <select id="lotteryDateSelect" parameterType="string" resultMap="lotteryDTO">
+        select * from LOTTERY where LOTTERY_SALE_DATE = #{DATE}
+    </select>
+
+    <select id="lotteryDateCodeSelect" parameterType="com.example.demo.dto.LotteryDTO" resultMap="lotteryDTO">
+        select * from LOTTERY where LOTTERY_SALE_DATE = #{LOTTERY_SALE_DATE} and LOTTERY_CODE = #{LOTTERY_CODE}
+    </select>
 </mapper>

@@ -9,4 +9,7 @@ import java.util.*;
 public interface OrderlistMapper {
     void orderlistInsert(OrderlistDTO orderlistDTO);
     List<OrderlistDTO> orderlistSelect();
+    List<OrderlistDTO> orderlistDateSelect(String DATE);
+    List<OrderlistDTO> orderlistDateCodeSelect(OrderlistDTO orderlistDTO);
+    OrderlistDTO orderlistDateCodePcodeSelect(OrderlistDTO orderlistDTO);
 }

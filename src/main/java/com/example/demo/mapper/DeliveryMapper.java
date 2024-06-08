@@ -9,4 +9,6 @@ import java.util.*;
 public interface DeliveryMapper {
     void deliveryInsert(DeliveryDTO deliveryDTO);
     List<DeliveryDTO> deliverySelect();
+    List<DeliveryDTO> deliveryDateCodeSelect(DeliveryDTO deliveryDTO);
+    List<DeliveryDTO> deliverySenderSelect(String SENDER);
 }

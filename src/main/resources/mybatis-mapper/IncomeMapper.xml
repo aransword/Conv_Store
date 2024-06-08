@@ -18,4 +18,12 @@
     <select id="incomeSelect" resultMap="incomeDTO">
         select * from income
     </select>
+
+    <select id="incomeDateSelect" parameterType="string" resultMap="incomeDTO">
+        select * from income where INCOME_DATE = #{DATE}
+    </select>
+
+    <select id="incomeDateCodeSelect" parameterType="com.example.demo.dto.IncomeDTO" resultMap="incomeDTO">
+        select * from income where INCOME_DATE = #{INCOME_DATE} and INCOME_CODE = #{INCOME_CODE}
+    </select>
 </mapper>

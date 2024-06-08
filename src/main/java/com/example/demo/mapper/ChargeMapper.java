@@ -10,4 +10,7 @@ public interface ChargeMapper {
 
     void chargeInsert(ChargeDTO chargeDTO);
     List<ChargeDTO> chargeSelect();
+    List<ChargeDTO> chargeDateSelect(String DATE);
+    ChargeDTO chargeDateCodeSelect(ChargeDTO chargeDTO);
+    List<ChargeDTO> chargePayerSelect(String PAYER);
 }

@@ -21,4 +21,12 @@
     <select id="displaySelect" resultMap="displayDTO">
         select * from DISPLAY
     </select>
+
+    <select id="displayCodeSelect" parameterType="string" resultMap="displayDTO">
+        select * from DISPLAY where PRODUCT_CODE = #{CODE}
+    </select>
+
+    <select id="displayNameSelect" parameterType="string" resultMap="displayDTO">
+        select * from DISPLAY where PRODUCT_NAME = #{NAME}
+    </select>
 </mapper>

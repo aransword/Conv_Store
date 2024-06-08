@@ -77,14 +77,14 @@ class DemoApplicationTests {
     public void employeeInsert(){
         EmployeeDTO employeeDTO = new EmployeeDTO();
 
-        employeeDTO.setEMP_CODE("KLMNO");
+        employeeDTO.setEMP_CODE("000003");
         employeeDTO.setEMP_NAME("GRAHEM");
-        employeeDTO.setEMP_AGE(22);
+        employeeDTO.setEMP_AGE(30);
         employeeDTO.setEMP_GENDER("M");
         employeeDTO.setEMP_PHONE_NO("01042823207");
-        employeeDTO.setEMP_MAIL_NO("35748");
-        employeeDTO.setEMP_ACCOUNT_NO("36854934");
-        employeeDTO.setPART("D");
+        employeeDTO.setEMP_MAIL_NO("65387");
+        employeeDTO.setEMP_ACCOUNT_NO("54356784");
+        employeeDTO.setPART("N");
         employeeDTO.setSALARY(0);
 
         employeeMapper.employeeInsert(employeeDTO);
@@ -100,6 +100,12 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void employeeCodeSelect(){
+        EmployeeDTO employeeDTO = employeeMapper.employeeCodeSelect("000001");
+        System.out.println(employeeDTO);
+    }
+
+    @Test
     public void chargeInsert(){
         ChargeDTO chargeDTO = new ChargeDTO();
 
@@ -109,13 +115,41 @@ class DemoApplicationTests {
         chargeDTO.setCHARGE_NAME("수도요금");
         chargeDTO.setPAYER("김동욱");
         chargeDTO.setPAY_AMOUNT(32000);
-        chargeDTO.setEMP_CODE("ABCDE");
+        chargeDTO.setEMP_CODE("000001");
         chargeMapper.chargeInsert(chargeDTO);
     }
 
     @Test
     public void chargeSelect(){
         List<ChargeDTO> chargeDTOList = chargeMapper.chargeSelect();
+        System.out.println(chargeDTOList.size());
+        for(ChargeDTO chargeDTO : chargeDTOList){
+            System.out.println(chargeDTO);
+        }
+    }
+
+    @Test
+    public void chargeDateSelect(){
+        List<ChargeDTO> chargeDTOList = chargeMapper.chargeDateSelect("20240607");
+        System.out.println(chargeDTOList.size());
+        for(ChargeDTO chargeDTO : chargeDTOList){
+            System.out.println(chargeDTO);
+        }
+    }
+
+    @Test
+    public void chargeDateCodeSelect() {
+        ChargeDTO chargeDTO = new ChargeDTO();
+
+        chargeDTO.setCHARGE_CODE("200001");
+        chargeDTO.setPAY_DATE("20240607");
+
+        System.out.println(chargeMapper.chargeDateCodeSelect(chargeDTO));
+    }
+
+    @Test
+    public void chargePayerSelect(){
+        List<ChargeDTO> chargeDTOList = chargeMapper.chargePayerSelect("김동욱");
         System.out.println(chargeDTOList.size());
         for(ChargeDTO chargeDTO : chargeDTOList){
             System.out.println(chargeDTO);
@@ -131,7 +165,7 @@ class DemoApplicationTests {
         atmDTO.setDNW_TYPE_CODE("D");
         atmDTO.setATM_ACCOUNT_NO("466402-01-520624");
         atmDTO.setDNW_AMOUNT(30000);
-        atmDTO.setEMP_CODE("ABCDE");
+        atmDTO.setEMP_CODE("000001");
         atmMapper.ATMInsert(atmDTO);
     }
 
@@ -145,12 +179,31 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void ATMDateSelect(){
+        List<ATMDTO> ATMDTOList = atmMapper.ATMDateSelect("20240607");
+        System.out.println(ATMDTOList.size());
+        for(ATMDTO atmDTO : ATMDTOList){
+            System.out.println(atmDTO);
+        }
+    }
+
+    @Test
+    public void ATMDateCodeSelect(){
+        ATMDTO atmSelectDTO = new ATMDTO();
+
+        atmSelectDTO.setATM_CODE("210001");
+        atmSelectDTO.setATM_USE_DATE("20240607");
+
+        System.out.println(atmMapper.ATMDateCodeSelect(atmSelectDTO));
+    }
+
+    @Test
     public void incomeInsert(){
         IncomeDTO income = new IncomeDTO();
 
         income.setINCOME_DATE("20240607");
-        income.setINCOME_CODE("100001");
-        income.setINCOME_AMOUNT(3000);
+        income.setINCOME_CODE("120001");
+        income.setINCOME_AMOUNT(1800);
         incomeMapper.incomeInsert(income);
     }
 
@@ -164,13 +217,31 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void incomeDateSelect() {
+        List<IncomeDTO> incomeDTOList = incomeMapper.incomeDateSelect("20240607");
+        System.out.println(incomeDTOList.size());
+        for(IncomeDTO incomeDTO : incomeDTOList){
+            System.out.println(incomeDTO);
+        }
+    }
+
+    @Test
+    public void incomeDateCodeSelect(){
+        IncomeDTO incomeSelectDTO = new IncomeDTO();
+        incomeSelectDTO.setINCOME_DATE("20240607");
+        incomeSelectDTO.setINCOME_CODE("120001");
+
+        System.out.println(incomeMapper.incomeDateCodeSelect(incomeSelectDTO));
+    }
+
+    @Test
     public void lotteryInsert(){
         LotteryDTO lotteryDTO = new LotteryDTO();
 
         lotteryDTO.setLOTTERY_CODE("110001");
         lotteryDTO.setLOTTERY_SALE_DATE("20240607");
         lotteryDTO.setLOTTERY_NO("1, 4, 10, 26, 32, 44");
-        lotteryDTO.setLOTTERY_CODE("FGHIJ");
+        lotteryDTO.setEMP_CODE("000002");
         lotteryMapper.lotteryInsert(lotteryDTO);
     }
 
@@ -181,6 +252,25 @@ class DemoApplicationTests {
         for(LotteryDTO lotteryDTO : lotteryDTOList){
             System.out.println(lotteryDTO);
         }
+    }
+
+    @Test
+    public void lotteryDateSelect(){
+        List<LotteryDTO> lotteryDTOList = lotteryMapper.lotteryDateSelect("20240607");
+        System.out.println(lotteryDTOList.size());
+        for(LotteryDTO lotteryDTO : lotteryDTOList){
+            System.out.println(lotteryDTO);
+        }
+    }
+
+    @Test
+    public void lotteryDateCodeSelect(){
+        LotteryDTO lotterySelectDTO = new LotteryDTO();
+
+        lotterySelectDTO.setLOTTERY_CODE("110001");
+        lotterySelectDTO.setLOTTERY_SALE_DATE("20240607");
+
+        System.out.println(lotteryMapper.lotteryDateCodeSelect(lotterySelectDTO));
     }
 
     @Test
@@ -196,7 +286,7 @@ class DemoApplicationTests {
         deliveryDTO.setDEST("서울시립대후문점");
         deliveryDTO.setDELIVERY_CONTENT("책");
         deliveryDTO.setCURRENT_STATUS("이동중");
-        deliveryDTO.setEMP_CODE("ABCDE");
+        deliveryDTO.setEMP_CODE("000001");
 
         deliveryMapper.deliveryInsert(deliveryDTO);
     }
@@ -204,6 +294,29 @@ class DemoApplicationTests {
     @Test
     public void deliverySelect(){
         List<DeliveryDTO> deliveryDTOList = deliveryMapper.deliverySelect();
+        System.out.println(deliveryDTOList.size());
+        for(DeliveryDTO deliveryDTO : deliveryDTOList) {
+            System.out.println(deliveryDTO);
+        }
+    }
+
+    @Test
+    public void deliveryDateCodeSelect(){
+        DeliveryDTO deliverySelectDTO = new DeliveryDTO();
+
+        deliverySelectDTO.setDELIVERY_DATE("20240607");
+        deliverySelectDTO.setDELIVERY_CODE("100001");
+
+        List<DeliveryDTO> deliveryDTOList = deliveryMapper.deliveryDateCodeSelect(deliverySelectDTO);
+        System.out.println(deliveryDTOList.size());
+        for(DeliveryDTO deliveryDTO : deliveryDTOList) {
+            System.out.println(deliveryDTO);
+        }
+    }
+
+    @Test
+    public void deliverySenderSelect(){
+        List<DeliveryDTO> deliveryDTOList = deliveryMapper.deliverySenderSelect("서웅진");
         System.out.println(deliveryDTOList.size());
         for(DeliveryDTO deliveryDTO : deliveryDTOList) {
             System.out.println(deliveryDTO);
@@ -232,6 +345,11 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void productCodeSelect(){
+        System.out.println(productMapper.productCodeSelect("0001"));
+    }
+
+    @Test
     public void companyInsert(){
         CompanyDTO companyDTO = new CompanyDTO();
 
@@ -253,12 +371,30 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void companyCodeSelect(){
+        List<CompanyDTO> companyDTOList = companyMapper.companyCodeSelect("0001");
+        System.out.println(companyDTOList.size());
+        for(CompanyDTO companyDTO : companyDTOList) {
+            System.out.println(companyDTO);
+        }
+    }
+
+    @Test
+    public void companyNameSelect(){
+        List<CompanyDTO> companyDTOList = companyMapper.companyNameSelect("농심전농점");
+        System.out.println(companyDTOList.size());
+        for(CompanyDTO companyDTO : companyDTOList) {
+            System.out.println(companyDTO);
+        }
+    }
+
+    @Test
     public void outcomeInsert(){
         OutcomeDTO outcomeDTO = new OutcomeDTO();
 
         outcomeDTO.setOUTCOME_DATE("20240607");
-        outcomeDTO.setOUTCOME_CODE("010001");
-        outcomeDTO.setOUTCOME_AMOUNT(50000);
+        outcomeDTO.setOUTCOME_CODE("010002");
+        outcomeDTO.setOUTCOME_AMOUNT(1000000);
 
         outcomeMapper.outcomeInsert(outcomeDTO);
     }
@@ -270,6 +406,25 @@ class DemoApplicationTests {
         for(OutcomeDTO outcomeDTO : outcomeDTOList) {
             System.out.println(outcomeDTO);
         }
+    }
+
+    @Test
+    public void outcomeDateSelect(){
+        List<OutcomeDTO> outcomeDTOList = outcomeMapper.outcomeDateSelect("20240607");
+        System.out.println(outcomeDTOList.size());
+        for(OutcomeDTO outcomeDTO : outcomeDTOList) {
+            System.out.println(outcomeDTO);
+        }
+    }
+
+    @Test
+    public void outcomeDateCodeSelect(){
+        OutcomeDTO outcomeSelectDTO = new OutcomeDTO();
+
+        outcomeSelectDTO.setOUTCOME_DATE("20240607");
+        outcomeSelectDTO.setOUTCOME_CODE("010002");
+
+        System.out.println(outcomeMapper.outcomeDateCodeSelect(outcomeSelectDTO));
     }
 
     @Test
@@ -290,6 +445,25 @@ class DemoApplicationTests {
         for(Order_DTO order_dto : order_dtoList) {
             System.out.println(order_dto);
         }
+    }
+
+    @Test
+    public void order_DateSelect(){
+        List<Order_DTO> order_dtoList = order_Mapper.order_DateSelect("20240607");
+        System.out.println(order_dtoList.size());
+        for(Order_DTO order_dto : order_dtoList) {
+            System.out.println(order_dto);
+        }
+    }
+
+    @Test
+    public void order_DateCodeSelect(){
+        Order_DTO order_dto = new Order_DTO();
+
+        order_dto.setORDER_CODE("020001");
+        order_dto.setORDER_DATE("20240607");
+
+        System.out.println(order_Mapper.order_DateCodeSelect(order_dto));
     }
 
     @Test
@@ -316,13 +490,47 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void orderlistDateSelect(){
+        List<OrderlistDTO> orderlistDTOList = orderlistMapper.orderlistDateSelect("20240607");
+        System.out.println(orderlistDTOList.size());
+        for(OrderlistDTO orderlistDTO : orderlistDTOList) {
+            System.out.println(orderlistDTO);
+        }
+    }
+
+    @Test
+    public void orderlistDateCodeSelect(){
+        OrderlistDTO orderlistSelectDTO = new OrderlistDTO();
+
+        orderlistSelectDTO.setORDER_DATE("20240607");
+        orderlistSelectDTO.setORDER_CODE("020001");
+
+        List<OrderlistDTO> orderlistDTOList = orderlistMapper.orderlistDateCodeSelect(orderlistSelectDTO);
+        System.out.println(orderlistDTOList.size());
+        for(OrderlistDTO orderlistDTO : orderlistDTOList) {
+            System.out.println(orderlistDTO);
+        }
+    }
+
+    @Test
+    public void orderlistDateCodePcodeSelect(){
+        OrderlistDTO orderlistSelectDTO = new OrderlistDTO();
+
+        orderlistSelectDTO.setORDER_DATE("20240607");
+        orderlistSelectDTO.setORDER_CODE("020001");
+        orderlistSelectDTO.setPRODUCT_CODE("0001");
+
+        System.out.println(orderlistMapper.orderlistDateCodePcodeSelect(orderlistSelectDTO));
+    }
+
+    @Test
     public void maintainInsert(){
         MaintainDTO maintainDTO = new MaintainDTO();
 
         maintainDTO.setMAINTAIN_DATE("20240607");
-        maintainDTO.setMAINTAIN_CODE("010001");
-        maintainDTO.setMAINTAIN_AMOUNT(50000);
-        maintainDTO.setEMP_CODE("");
+        maintainDTO.setMAINTAIN_CODE("010002");
+        maintainDTO.setMAINTAIN_AMOUNT(1000000);
+        maintainDTO.setEMP_CODE("000001");
 
         maintainMapper.maintainInsert(maintainDTO);
     }
@@ -330,6 +538,34 @@ class DemoApplicationTests {
     @Test
     public void maintainSelect(){
         List<MaintainDTO> maintainDTOList = maintainMapper.maintainSelect();
+        System.out.println(maintainDTOList.size());
+        for(MaintainDTO maintainDTO : maintainDTOList) {
+            System.out.println(maintainDTO);
+        }
+    }
+
+    @Test
+    public void maintainDateSelect(){
+        List<MaintainDTO> maintainDTOList = maintainMapper.maintainDateSelect("20240607");
+        System.out.println(maintainDTOList.size());
+        for(MaintainDTO maintainDTO : maintainDTOList) {
+            System.out.println(maintainDTO);
+        }
+    }
+
+    @Test
+    public void maintainDateCodeSelect(){
+        MaintainDTO maintainSelectDTO = new MaintainDTO();
+
+        maintainSelectDTO.setMAINTAIN_DATE("20240607");
+        maintainSelectDTO.setMAINTAIN_CODE("010002");
+
+        System.out.println(maintainMapper.maintainDateCodeSelect(maintainSelectDTO));
+    }
+
+    @Test
+    public void maintainEmpcodeSelect(){
+        List<MaintainDTO> maintainDTOList = maintainMapper.maintainEmpcodeSelect("000001");
         System.out.println(maintainDTOList.size());
         for(MaintainDTO maintainDTO : maintainDTOList) {
             System.out.println(maintainDTO);
@@ -361,6 +597,29 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void membershipCodeSelect(){
+        System.out.println(membershipMapper.membershipCodeSelect("0001"));
+    }
+
+    @Test
+    public void membershipNameSelect() {
+        List<MembershipDTO> membershipDTOList = membershipMapper.membershipNameSelect("서웅진");
+        System.out.println(membershipDTOList.size());
+        for(MembershipDTO membershipDTO : membershipDTOList) {
+            System.out.println(membershipDTO);
+        }
+    }
+
+    @Test
+    public void membershipPhoneSelect() {
+        List<MembershipDTO> membershipDTOList = membershipMapper.membershipPhoneSelect("01054368632");
+        System.out.println(membershipDTOList.size());
+        for(MembershipDTO membershipDTO : membershipDTOList) {
+            System.out.println(membershipDTO);
+        }
+    }
+
+    @Test
     public void displayInsert(){
         DisplayDTO displayDTO = new DisplayDTO();
 
@@ -381,6 +640,18 @@ class DemoApplicationTests {
         for(DisplayDTO displayDTO : displayDTOList) {
             System.out.println(displayDTO);
         }
+    }
+
+    @Test
+    public void displayCodeSelect(){
+        DisplayDTO displayDTO = displayMapper.displayCodeSelect("0001");
+        System.out.println(displayDTO);
+    }
+
+    @Test
+    public void displayNameSelect(){
+        DisplayDTO displayDTO = displayMapper.displayNameSelect("먹태깡");
+        System.out.println(displayDTO);
     }
 
     @Test
@@ -407,6 +678,18 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void storageCodeSelect(){
+        StorageDTO storageDTO = storageMapper.storageCodeSelect("0001");
+        System.out.println(storageDTO);
+    }
+
+    @Test
+    public void storageNameSelect(){
+        StorageDTO storageDTO = storageMapper.storageNameSelect("먹태깡");
+        System.out.println(storageDTO);
+    }
+
+    @Test
     public void discardlistInsert(){
         DiscardlistDTO discardlistDTO = new DiscardlistDTO();
 
@@ -426,6 +709,31 @@ class DemoApplicationTests {
         for(DiscardlistDTO discardlistDTO : discardlistDTOList) {
             System.out.println(discardlistDTO);
         }
+    }
+
+    @Test
+    public void discardlistDateCodeSelect(){
+        DiscardlistDTO discardlistSelectDTO = new DiscardlistDTO();
+
+        discardlistSelectDTO.setDISCARD_DATE("20240607");
+        discardlistSelectDTO.setDISCARD_TYPE_CODE("S");
+
+        List<DiscardlistDTO> discardlistDTOList = discardlistMapper.discardlistDateCodeSelect(discardlistSelectDTO);
+        System.out.println(discardlistDTOList.size());
+        for(DiscardlistDTO discardlistDTO : discardlistDTOList) {
+            System.out.println(discardlistDTO);
+        }
+    }
+
+    @Test
+    public void discardlistDateCodePcodeSelect(){
+        DiscardlistDTO discardlistSelectDTO = new DiscardlistDTO();
+
+        discardlistSelectDTO.setDISCARD_DATE("20240607");
+        discardlistSelectDTO.setDISCARD_TYPE_CODE("S");
+        discardlistSelectDTO.setPRODUCT_CODE("0001");
+
+        System.out.println(discardlistMapper.discardlistDateCodePcodeSelect(discardlistSelectDTO));
     }
 
     @Test
@@ -449,6 +757,31 @@ class DemoApplicationTests {
         for(ProdmanageDTO prodmanageDTO : prodmanageDTOList) {
             System.out.println(prodmanageDTO);
         }
+    }
+
+    @Test
+    public void prodmanageDateCodeSelect(){
+        ProdmanageDTO prodmanageSelectDTO = new ProdmanageDTO();
+
+        prodmanageSelectDTO.setMANAGE_DATE("20240607");
+        prodmanageSelectDTO.setMANAGE_TYPE_CODE("D");
+
+        List<ProdmanageDTO> prodmanageDTOList = prodmanageMapper.prodmanageDateCodeSelect(prodmanageSelectDTO);
+        System.out.println(prodmanageDTOList.size());
+        for(ProdmanageDTO prodmanageDTO : prodmanageDTOList) {
+            System.out.println(prodmanageDTO);
+        }
+    }
+
+    @Test
+    public void prodmanageDateCodePcodeSelect(){
+        ProdmanageDTO prodmanageSelectDTO = new ProdmanageDTO();
+
+        prodmanageSelectDTO.setMANAGE_DATE("20240607");
+        prodmanageSelectDTO.setMANAGE_TYPE_CODE("D");
+        prodmanageSelectDTO.setPRODUCT_CODE("0001");
+
+        System.out.println(prodmanageMapper.prodmanageDateCodePcodeSelect(prodmanageSelectDTO));
     }
 
     @Test
@@ -476,6 +809,25 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void purchaseDateSelect(){
+        List<PurchaseDTO> purchaseDTOList = purchaseMapper.purchaseDateSelect("20240607");
+        System.out.println(purchaseDTOList.size());
+        for(PurchaseDTO purchaseDTO : purchaseDTOList) {
+            System.out.println(purchaseDTO);
+        }
+    }
+
+    @Test
+    public void purchaseDateCodeSelect(){
+        PurchaseDTO purchaseSelectDTO = new PurchaseDTO();
+
+        purchaseSelectDTO.setPURCHASE_DATE("20240607");
+        purchaseSelectDTO.setPURCHASE_CODE("120001");
+
+        System.out.println(purchaseMapper.purchaseDateCodeSelect(purchaseSelectDTO));
+    }
+
+    @Test
     public void purlistInsert(){
         PurlistDTO purlistDTO = new PurlistDTO();
 
@@ -496,6 +848,29 @@ class DemoApplicationTests {
         for(PurlistDTO purlistDTO : purlistDTOList) {
             System.out.println(purlistDTO);
         }
+    }
+
+    @Test
+    public void purlistDateCodeSelect(){
+        PurlistDTO purlistSelectDTO = new PurlistDTO();
+        purlistSelectDTO.setPURCHASE_DATE("20240607");
+        purlistSelectDTO.setPURCHASE_CODE("120001");
+
+        List<PurlistDTO> purlistDTOList = purlistMapper.purlistDateCodeSelect(purlistSelectDTO);
+        System.out.println(purlistDTOList.size());
+        for(PurlistDTO purlistDTO : purlistDTOList) {
+            System.out.println(purlistDTO);
+        }
+    }
+
+    @Test
+    public void purlistDateCodePcodeSelect(){
+        PurlistDTO purlistSelectDTO = new PurlistDTO();
+        purlistSelectDTO.setPURCHASE_DATE("20240607");
+        purlistSelectDTO.setPURCHASE_CODE("120001");
+        purlistSelectDTO.setPRODUCT_CODE("0001");
+
+        System.out.println(purlistMapper.purlistDateCodePcodeSelect(purlistSelectDTO));
     }
 
     @Test
@@ -521,5 +896,25 @@ class DemoApplicationTests {
         }
     }
 
+
+    @Test
+    public void returnlistPurdatePurCodePcodeSelect(){
+        ReturnlistDTO returnlistSelectDTO = new ReturnlistDTO();
+
+        returnlistSelectDTO.setPURCHASE_DATE("20240607");
+        returnlistSelectDTO.setPURCHASE_CODE("120001");
+        returnlistSelectDTO.setPRODUCT_CODE("0001");
+
+        System.out.println(returnlistMapper.returnlistPurdatePurcodePcodeSelect(returnlistSelectDTO));
+    }
+
+    @Test
+    public void returnlistDateSelect(){
+        List<ReturnlistDTO> returnlistDTOList = returnlistMapper.returnlistDateSelect("20240607");
+        System.out.println(returnlistDTOList.size());
+        for(ReturnlistDTO returnlistDTO : returnlistDTOList) {
+            System.out.println(returnlistDTO);
+        }
+    }
 
 }
