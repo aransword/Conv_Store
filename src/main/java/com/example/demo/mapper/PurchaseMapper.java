@@ -11,4 +11,5 @@ public interface PurchaseMapper {
     List<PurchaseDTO> purchaseSelect();
     List<PurchaseDTO> purchaseDateSelect(String DATE);
     PurchaseDTO purchaseDateCodeSelect(PurchaseDTO purchaseDTO);
+    void purchaseUpdate(PurchaseDTO purchaseDTO);
 }

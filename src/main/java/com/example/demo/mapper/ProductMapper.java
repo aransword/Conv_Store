@@ -10,4 +10,5 @@ public interface ProductMapper {
     void productInsert(ProductDTO productDTO);
     List<ProductDTO> productSelect();
     ProductDTO productCodeSelect(String CODE);
+    void productUpdate(ProductDTO productDTO);
 }

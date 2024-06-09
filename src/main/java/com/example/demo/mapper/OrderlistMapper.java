@@ -12,4 +12,5 @@ public interface OrderlistMapper {
     List<OrderlistDTO> orderlistDateSelect(String DATE);
     List<OrderlistDTO> orderlistDateCodeSelect(OrderlistDTO orderlistDTO);
     OrderlistDTO orderlistDateCodePcodeSelect(OrderlistDTO orderlistDTO);
+    void orderlistUpdate(OrderlistDTO orderlistDTO);
 }

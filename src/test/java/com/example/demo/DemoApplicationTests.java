@@ -106,6 +106,28 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void employeeUpdate(){
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+
+        employeeDTO.setEMP_CODE("000003");
+        employeeDTO.setEMP_NAME("GRAHEM");
+        employeeDTO.setEMP_AGE(30);
+        employeeDTO.setEMP_GENDER("M");
+        employeeDTO.setEMP_PHONE_NO("01012345678"); //여기 변경
+        employeeDTO.setEMP_MAIL_NO("65387");
+        employeeDTO.setEMP_ACCOUNT_NO("54356784");
+        employeeDTO.setPART("N");
+        employeeDTO.setSALARY(0);
+
+        employeeMapper.employeeUpdate(employeeDTO);
+    }
+
+    @Test
+    public void employeeCodeDelete(){
+        employeeMapper.employeeCodeDelete("000003");
+    }
+
+    @Test
     public void chargeInsert(){
         ChargeDTO chargeDTO = new ChargeDTO();
 
@@ -350,6 +372,18 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void productUpdate(){
+        ProductDTO productDTO = new ProductDTO();
+
+        productDTO.setPRODUCT_CODE("0001");
+        productDTO.setPRODUCT_NAME("먹태깡");
+        productDTO.setPRODUCT_PRICE(1800);
+        productDTO.setPB_PRODUCT("Y");
+
+        productMapper.productUpdate(productDTO);
+    }
+
+    @Test
     public void companyInsert(){
         CompanyDTO companyDTO = new CompanyDTO();
 
@@ -386,6 +420,23 @@ class DemoApplicationTests {
         for(CompanyDTO companyDTO : companyDTOList) {
             System.out.println(companyDTO);
         }
+    }
+
+    @Test
+    public void companyUpdate(){
+        CompanyDTO companyDTO = new CompanyDTO();
+
+        companyDTO.setCOMPANY_CODE("0002");
+        companyDTO.setCOMPANY_NAME("오리온휘경점");
+        companyDTO.setCOMPANY_PHONE_NO("021234567");
+        companyDTO.setCOMPANY_MAIL_NO("75738");
+
+        companyMapper.companyUpdate(companyDTO);
+    }
+
+    @Test
+    public void companyCodeDelete(){
+        companyMapper.companyCodeDelete("0002");
     }
 
     @Test
@@ -467,6 +518,17 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void order_Update(){
+        Order_DTO order_dto = new Order_DTO();
+
+        order_dto.setORDER_DATE("20240607");
+        order_dto.setORDER_CODE("020001");
+        order_dto.setORDER_AMOUNT(4600);
+
+        order_Mapper.order_Update(order_dto);
+    }
+
+    @Test
     public void orderlistInsert(){
         OrderlistDTO orderlistDTO = new OrderlistDTO();
 
@@ -521,6 +583,20 @@ class DemoApplicationTests {
         orderlistSelectDTO.setPRODUCT_CODE("0001");
 
         System.out.println(orderlistMapper.orderlistDateCodePcodeSelect(orderlistSelectDTO));
+    }
+
+    @Test
+    public void orderlistUpdate(){
+        OrderlistDTO orderlistDTO = new OrderlistDTO();
+
+        orderlistDTO.setORDER_DATE("20240607");
+        orderlistDTO.setORDER_CODE("020001");
+        orderlistDTO.setPRODUCT_CODE("0001");
+        orderlistDTO.setORDER_PRODUCT_QUANTITY(3);
+        orderlistDTO.setORDER_PRODUCT_PRICE(4600);
+        orderlistDTO.setCOMPANY_CODE("0001");
+
+        orderlistMapper.orderlistUpdate(orderlistDTO);
     }
 
     @Test
@@ -620,6 +696,21 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void membershipUpdate(){
+        MembershipDTO membershipDTO = new MembershipDTO();
+
+        membershipDTO.setMEMBERSHIP_CODE("0001");
+        membershipDTO.setMEMBERSHIP_NAME("서웅진");
+        membershipDTO.setMEMBERSHIP_AGE(25);
+        membershipDTO.setMEMBERSHIP_GENDER("M");
+        membershipDTO.setMEMBERSHIP_MAIL_NO("34567");
+        membershipDTO.setMEMBERSHIP_PHONE_NO("01054368632");
+        membershipDTO.setMEMBERSHIP_MILEAGE(0);
+
+        membershipMapper.membershipUpdate(membershipDTO);
+    }
+
+    @Test
     public void displayInsert(){
         DisplayDTO displayDTO = new DisplayDTO();
 
@@ -655,6 +746,25 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void displayUpdate(){
+        DisplayDTO displayDTO = new DisplayDTO();
+
+        displayDTO.setPRODUCT_CODE("0001");
+        displayDTO.setPRODUCT_NAME("먹태깡");
+        displayDTO.setPRODUCT_PRICE(1800);
+        displayDTO.setPB_PRODUCT("N");
+        displayDTO.setDISPLAY_QUANTITY(4);
+        displayDTO.setPRODUCT_DC(0);
+
+        displayMapper.displayUpdate(displayDTO);
+    }
+
+    @Test
+    public void displayCodeDelete(){
+        displayMapper.displayCodeDelete("0001");
+    }
+
+    @Test
     public void storageInsert(){
         StorageDTO storageDTO = new StorageDTO();
 
@@ -687,6 +797,25 @@ class DemoApplicationTests {
     public void storageNameSelect(){
         StorageDTO storageDTO = storageMapper.storageNameSelect("먹태깡");
         System.out.println(storageDTO);
+    }
+
+    @Test
+    public void storageUpdate(){
+        StorageDTO storageDTO = new StorageDTO();
+
+        storageDTO.setPRODUCT_CODE("0001");
+        storageDTO.setPRODUCT_NAME("먹태깡");
+        storageDTO.setSTORAGE_QUANTITY(3);
+        storageDTO.setPRODUCT_PRICE(1800);
+        storageDTO.setPRODUCT_DC(0);
+        storageDTO.setPB_PRODUCT("Y");
+
+        storageMapper.storageUpdate(storageDTO);
+    }
+
+    @Test
+    public void storageCodeDelete(){
+        storageMapper.storageCodeDelete("0001");
     }
 
     @Test
@@ -828,6 +957,21 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void purchaseUpdate(){
+        PurchaseDTO purchaseDTO = new PurchaseDTO();
+
+        purchaseDTO.setPURCHASE_DATE("20240607");
+        purchaseDTO.setPURCHASE_CODE("120001");
+        purchaseDTO.setPURCHASE_AMOUNT(1800);
+        purchaseDTO.setCARD_ACCOUNT_NO("3445685354");
+        purchaseDTO.setCARD_PURCHASE_AMOUNT(1000);
+        purchaseDTO.setCASH_PURCHASE_AMOUNT(800);
+        purchaseDTO.setEMP_CODE("000001");
+
+        purchaseMapper.purchaseUpdate(purchaseDTO);
+    }
+
+    @Test
     public void purlistInsert(){
         PurlistDTO purlistDTO = new PurlistDTO();
 
@@ -871,6 +1015,20 @@ class DemoApplicationTests {
         purlistSelectDTO.setPRODUCT_CODE("0001");
 
         System.out.println(purlistMapper.purlistDateCodePcodeSelect(purlistSelectDTO));
+    }
+
+    @Test
+    public void purlistUpdate(){
+        PurlistDTO purlistDTO = new PurlistDTO();
+
+        purlistDTO.setPURCHASE_DATE("20240607");
+        purlistDTO.setPURCHASE_CODE("120001");
+        purlistDTO.setPRODUCT_CODE("0001");
+        purlistDTO.setPURCHASE_PRODUCT_QUANTITY(2);
+        purlistDTO.setPURCHASE_PRODUCT_PRICE(3600);
+        purlistDTO.setACC_MILEAGE(0);
+
+        purlistMapper.purlistUpdate(purlistDTO);
     }
 
     @Test

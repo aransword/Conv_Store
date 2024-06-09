@@ -11,4 +11,6 @@ public interface StorageMapper {
     List<StorageDTO> storageSelect();
     StorageDTO storageNameSelect(String NAME);
     StorageDTO storageCodeSelect(String CODE);
+    void storageUpdate(StorageDTO storageDTO);
+    void storageCodeDelete(String CODE);
 }

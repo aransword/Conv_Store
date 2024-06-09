@@ -27,4 +27,14 @@
     <select id="companyNameSelect" parameterType="string" resultMap="companyDTO">
         select * from company where COMPANY_NAME = #{NAME}
     </select>
+
+    <update id="companyUpdate" parameterType="com.example.demo.dto.CompanyDTO">
+        BEGIN
+            update company set COMPANY_NAME = #{COMPANY_NAME}, COMPANY_PHONE_NO = #{COMPANY_PHONE_NO}, COMPANY_MAIL_NO = #{COMPANY_MAIL_NO} where COMPANY_CODE = #{COMPANY_CODE};
+        end;
+    </update>
+
+    <delete id="companyCodeDelete" parameterType="string">
+        delete from COMPANY where COMPANY_CODE = #{CODE}
+    </delete>
 </mapper>

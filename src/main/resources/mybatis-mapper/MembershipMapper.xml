@@ -34,4 +34,10 @@
     <select id="membershipCodeSelect" parameterType="string" resultMap="membershipDTO">
         select * from MEMBERSHIP where MEMBERSHIP_CODE = #{CODE}
     </select>
+
+    <update id="membershipUpdate" parameterType="com.example.demo.dto.MembershipDTO">
+        BEGIN
+            update MEMBERSHIP set MEMBERSHIP_NAME = #{MEMBERSHIP_NAME}, MEMBERSHIP_AGE = #{MEMBERSHIP_AGE}, MEMBERSHIP_GENDER = #{MEMBERSHIP_GENDER}, MEMBERSHIP_MAIL_NO = #{MEMBERSHIP_MAIL_NO}, MEMBERSHIP_PHONE_NO = #{MEMBERSHIP_PHONE_NO}, MEMBERSHIP_MILEAGE = #{MEMBERSHIP_MILEAGE} where MEMBERSHIP_CODE = #{MEMBERSHIP_CODE};
+        end;
+    </update>
 </mapper>

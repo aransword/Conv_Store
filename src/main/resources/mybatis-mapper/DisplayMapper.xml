@@ -29,4 +29,14 @@
     <select id="displayNameSelect" parameterType="string" resultMap="displayDTO">
         select * from DISPLAY where PRODUCT_NAME = #{NAME}
     </select>
+
+    <update id="displayUpdate" parameterType="com.example.demo.dto.DisplayDTO">
+        BEGIN
+           update DISPLAY set PRODUCT_NAME = #{PRODUCT_NAME}, DISPLAY_QUANTITY = #{DISPLAY_QUANTITY}, PRODUCT_PRICE = #{PRODUCT_PRICE}, PRODUCT_DC = #{PRODUCT_DC}, PB_PRODUCT = #{PB_PRODUCT} where PRODUCT_CODE = #{PRODUCT_CODE};
+        END;
+    </update>
+
+    <delete id="displayCodeDelete" parameterType="string">
+        delete from DISPLAY where PRODUCT_CODE = #{CODE}
+    </delete>
 </mapper>

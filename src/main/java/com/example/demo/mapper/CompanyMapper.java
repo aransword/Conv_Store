@@ -11,4 +11,6 @@ public interface CompanyMapper {
     List<CompanyDTO> companySelect();
     List<CompanyDTO> companyCodeSelect(String CODE);
     List<CompanyDTO> companyNameSelect(String NAME);
+    void companyUpdate(CompanyDTO companyDTO);
+    void companyCodeDelete(String CODE);
 }

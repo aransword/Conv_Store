@@ -29,4 +29,14 @@
     <select id="storageCodeSelect" parameterType="string" resultMap="storageDTO">
         select * from STORAGE where PRODUCT_CODE = #{CODE}
     </select>
+
+    <update id="storageUpdate" parameterType="com.example.demo.dto.StorageDTO">
+        BEGIN
+           update STORAGE set PRODUCT_NAME = #{PRODUCT_NAME}, STORAGE_QUANTITY = #{STORAGE_QUANTITY}, PRODUCT_PRICE = #{PRODUCT_PRICE}, PRODUCT_DC = #{PRODUCT_DC}, PB_PRODUCT = #{PB_PRODUCT} where PRODUCT_CODE = #{PRODUCT_CODE};
+        END;
+    </update>
+
+    <delete id="storageCodeDelete" parameterType="string">
+        delete from STORAGE where PRODUCT_CODE = #{CODE}
+    </delete>
 </mapper>

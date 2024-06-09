@@ -11,4 +11,5 @@ public interface Order_Mapper {
     List<Order_DTO> order_Select();
     Order_DTO order_DateCodeSelect(Order_DTO order_DTO);
     List<Order_DTO> order_DateSelect(String DATE);
+    void order_Update(Order_DTO order_DTO);
 }

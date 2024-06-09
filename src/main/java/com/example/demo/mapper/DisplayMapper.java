@@ -11,4 +11,6 @@ public interface DisplayMapper {
     List<DisplayDTO> displaySelect();
     DisplayDTO displayCodeSelect(String CODE);
     DisplayDTO displayNameSelect(String NAME);
+    void displayUpdate(DisplayDTO displayDTO);
+    void displayCodeDelete(String CODE);
 }

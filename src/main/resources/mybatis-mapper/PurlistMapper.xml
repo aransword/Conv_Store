@@ -29,4 +29,10 @@
     <select id="purlistDateCodePcodeSelect" parameterType="com.example.demo.dto.PurlistDTO" resultMap="purlistDTO">
         select * from PUR_LIST where PURCHASE_DATE = #{PURCHASE_DATE} and PURCHASE_CODE = #{PURCHASE_CODE} and PRODUCT_CODE = #{PRODUCT_CODE}
     </select>
+
+    <update id="purlistUpdate" parameterType="com.example.demo.dto.PurlistDTO">
+        BEGIN
+            update PUR_LIST set PURCHASE_PRODUCT_QUANTITY = #{PURCHASE_PRODUCT_QUANTITY}, PURCHASE_PRODUCT_PRICE = #{PURCHASE_PRODUCT_PRICE}, ACC_MILEAGE = #{ACC_MILEAGE}, PRODUCT_CODE = #{PRODUCT_CODE} WHERE PURCHASE_DATE = #{PURCHASE_DATE} AND PURCHASE_CODE = #{PURCHASE_CODE};
+        end;
+    </update>
 </mapper>

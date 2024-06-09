@@ -12,4 +12,5 @@ public interface MembershipMapper {
     List<MembershipDTO> membershipNameSelect(String NAME);
     List<MembershipDTO> membershipPhoneSelect(String PHONE);
     MembershipDTO membershipCodeSelect(String CODE);
+    void membershipUpdate(MembershipDTO membershipDTO);
 }

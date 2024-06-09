@@ -12,4 +12,6 @@ public interface EmployeeMapper {
     void employeeInsert(EmployeeDTO employeeDTO);
     List<EmployeeDTO> employeeSelect();
     EmployeeDTO employeeCodeSelect(String CODE);
+    void employeeUpdate(EmployeeDTO employeeDTO);
+    void employeeCodeDelete(String CODE);
 }

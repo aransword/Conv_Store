@@ -27,4 +27,14 @@
     <select id="employeeCodeSelect" parameterType="string" resultMap="employeeDTO">
         select * from EMPLOYEE where EMP_CODE = #{CODE}
     </select>
+
+    <update id="employeeUpdate" parameterType="com.example.demo.dto.EmployeeDTO">
+        BEGIN
+            update EMPLOYEE set EMP_NAME = #{EMP_NAME}, EMP_AGE = #{EMP_AGE}, EMP_GENDER = #{EMP_GENDER}, EMP_PHONE_NO = #{EMP_PHONE_NO}, EMP_MAIL_NO = #{EMP_MAIL_NO}, EMP_ACCOUNT_NO = #{EMP_ACCOUNT_NO}, PART = #{PART}, SALARY = #{SALARY} where EMP_CODE = #{EMP_CODE};
+        END;
+    </update>
+
+    <delete id="employeeCodeDelete" parameterType="String">
+        delete from EMPLOYEE where EMP_CODE = #{CODE}
+    </delete>
 </mapper>

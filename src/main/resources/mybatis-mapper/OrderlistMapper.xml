@@ -33,4 +33,10 @@
     <select id="orderlistDateCodePcodeSelect" parameterType="com.example.demo.dto.OrderlistDTO" resultMap="orderlistDTO">
         select * from ORDER_LIST where ORDER_DATE = #{ORDER_DATE} and ORDER_CODE = #{ORDER_CODE} and PRODUCT_CODE = #{PRODUCT_CODE}
     </select>
+
+    <update id="orderlistUpdate" parameterType="com.example.demo.dto.OrderlistDTO">
+        BEGIN
+            update ORDER_LIST set ORDER_PRODUCT_QUANTITY = #{ORDER_PRODUCT_QUANTITY}, ORDER_PRODUCT_PRICE = #{ORDER_PRODUCT_PRICE}, COMPANY_CODE = #{COMPANY_CODE} where PRODUCT_CODE = #{PRODUCT_CODE} and ORDER_CODE = #{ORDER_CODE} and ORDER_DATE = #{ORDER_DATE};
+        end;
+    </update>
 </mapper>

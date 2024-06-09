@@ -11,4 +11,5 @@ public interface PurlistMapper {
     List<PurlistDTO> purlistSelect();
     List<PurlistDTO> purlistDateCodeSelect(PurlistDTO purlistDTO);
     PurlistDTO purlistDateCodePcodeSelect(PurlistDTO purlistDTO);
+    void purlistUpdate(PurlistDTO purlistDTO);
 }
